@@ -1,0 +1,20 @@
+# OS / Editor
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Debug artifacts
+debug/
+
+# Temp / pasted clipboard captures (внутрисессионные)
+*.tmp
+*~
+
+# Build / cache (на будущее)
+node_modules/
+.cache/
+dist/

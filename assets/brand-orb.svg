@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000" role="img" aria-label="RobotMIA brand circle motif">
+  <defs>
+    <radialGradient id="g" cx="30%" cy="20%" r="90%">
+      <stop offset="0%" stop-color="#1872FF"></stop>
+      <stop offset="100%" stop-color="#0B3A92"></stop>
+    </radialGradient>
+  </defs>
+  <circle cx="500" cy="500" r="500" fill="url(#g)"></circle>
+  <g fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.2">
+    <circle cx="500" cy="500" r="120"></circle>
+    <circle cx="500" cy="500" r="170"></circle>
+    <circle cx="500" cy="500" r="220"></circle>
+    <circle cx="500" cy="500" r="270"></circle>
+    <circle cx="500" cy="500" r="320"></circle>
+    <circle cx="500" cy="500" r="370"></circle>
+    <circle cx="500" cy="500" r="420"></circle>
+    <circle cx="500" cy="500" r="470"></circle>
+  </g>
+  <g transform="translate(500 500)">
+    <g fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1">
+      <ellipse cx="-60" cy="20" rx="160" ry="140" transform="rotate(18)"></ellipse>
+      <ellipse cx="60" cy="-20" rx="200" ry="170" transform="rotate(-14)"></ellipse>
+      <ellipse cx="0" cy="0" rx="260" ry="200" transform="rotate(28)"></ellipse>
+    </g>
+  </g>
+</svg>

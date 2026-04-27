@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="RobotMIA concentric wireframe pattern">
+  <g fill="none" stroke="rgba(198, 215, 248, 0.55)" stroke-width="1.2">
+    
+    <g transform="translate(330 400)">
+      <circle r="300"></circle><circle r="278"></circle><circle r="256"></circle><circle r="234"></circle><circle r="212"></circle><circle r="190"></circle>
+      <circle r="168"></circle><circle r="146"></circle><circle r="124"></circle><circle r="102"></circle><circle r="80"></circle>
+    </g>
+    
+    <g transform="translate(820 400)">
+      <circle r="340"></circle><circle r="315"></circle><circle r="290"></circle><circle r="265"></circle><circle r="240"></circle><circle r="215"></circle>
+      <circle r="190"></circle><circle r="165"></circle><circle r="140"></circle><circle r="115"></circle><circle r="90"></circle><circle r="65"></circle>
+    </g>
+    
+    <g transform="translate(560 440)">
+      <circle r="140"></circle><circle r="125"></circle><circle r="108"></circle><circle r="92"></circle><circle r="76"></circle><circle r="60"></circle>
+      <circle r="44"></circle><circle r="28"></circle>
+    </g>
+  </g>
+</svg>

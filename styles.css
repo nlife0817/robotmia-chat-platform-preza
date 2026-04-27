@@ -1,0 +1,380 @@
+@import url("./assets/colors_and_type.css");
+
+/* ============================================================
+   Презентация «Чат-платформа RobotMIA»
+   Typography scale for 1920×1080 slides
+   ============================================================ */
+:root {
+  --t-title: 84px;
+  --t-section-num: 220px;
+  --t-eyebrow: 28px;
+  --t-h2: 64px;
+  --t-h3: 44px;
+  --t-body: 30px;
+  --t-body-sm: 24px;
+
+  --pad-x: 120px;
+  --pad-y: 72px;
+  --gap-title: 48px;
+  --gap-item: 28px;
+}
+
+* { box-sizing: border-box; }
+
+deck-stage { background: #06142e; }
+
+section.slide {
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+  background: var(--mia-white);
+  font-family: var(--font-display);
+  color: var(--mia-graphite);
+  padding: var(--pad-y) var(--pad-x);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Theme overrides — need higher specificity than `section.slide` */
+section.slide.slide--dark  { background: var(--mia-graphite); color: #fff; }
+section.slide.slide--brand { background: var(--gradient-brand); color: #fff; }
+
+/* ---------- shared chrome ---------- */
+.chrome-logo {
+  position: absolute;
+  top: 56px;
+  right: 72px;
+  height: 44px;
+  width: auto;
+  opacity: 0.95;
+  z-index: 10;
+}
+/* Дублирующая нижняя плашка с названием раздела убрана глобально:
+   eyebrow в шапке слайда уже выполняет эту роль. */
+.chrome-foot { display: none !important; }
+
+/* ---------- eyebrow / pill header ---------- */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  height: 52px;
+  padding: 0 28px;
+  border-radius: 999px;
+  background: var(--mia-blue);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+.eyebrow--ghost {
+  background: transparent;
+  color: var(--mia-blue);
+  border: 2px solid var(--mia-blue);
+}
+.eyebrow--sky {
+  background: var(--mia-blue-200);
+  color: var(--mia-blue-800);
+}
+
+/* ---------- slide title ---------- */
+.slide-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--t-title);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  color: var(--mia-graphite);
+  text-wrap: balance;
+  margin: 0;
+}
+.slide-title .accent { color: var(--mia-blue); }
+.slide-title em {
+  font-style: normal;
+  font-weight: 900;
+  color: var(--mia-blue);
+}
+
+/* ---------- brand backgrounds (text overrides) ---------- */
+.slide--brand .slide-title { color: #fff; }
+.slide--brand .slide-title .accent { color: var(--mia-blue-200); }
+.slide--dark .slide-title { color: #fff; }
+
+/* ---------- pattern decorations ---------- */
+.pattern {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.18;
+  z-index: 0;
+}
+.slide--brand .pattern { opacity: 0.22; filter: brightness(1.8); }
+
+/* ---------- cards ---------- */
+.card {
+  background: #fff;
+  border: 1px solid rgba(14,24,33,0.08);
+  border-radius: 20px;
+  padding: 36px 40px;
+  box-shadow: 0 8px 24px rgba(14,24,33,0.06);
+}
+.card--brand {
+  background: var(--mia-blue);
+  color: #fff;
+  border: none;
+  box-shadow: 0 16px 40px rgba(19,96,243,0.28);
+}
+.card--dark {
+  background: var(--mia-graphite);
+  color: #fff;
+  border: none;
+}
+.card--sky {
+  background: var(--mia-blue-050);
+  border: 1px solid rgba(19,96,243,0.12);
+}
+.card--ghost {
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.22);
+  color: #fff;
+}
+
+/* ---------- small helpers ---------- */
+.row { display: flex; }
+.col { display: flex; flex-direction: column; }
+.grow { flex: 1; }
+
+/* Icon frame */
+.icon-chip {
+  width: 60px; height: 60px;
+  border-radius: 16px;
+  background: var(--mia-blue-050);
+  color: var(--mia-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.icon-chip.brand {
+  background: var(--mia-blue);
+  color: #fff;
+}
+.icon-chip.dark {
+  background: var(--mia-graphite);
+  color: #fff;
+}
+
+/* Cyrillic-safe svg line icons */
+.ico { stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+.ico-fill { fill: currentColor; }
+
+/* Number blob */
+.numeral {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 128px;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--mia-blue);
+}
+.numeral--mono { color: var(--mia-graphite); }
+
+/* Soft divider */
+.rule {
+  height: 2px;
+  background: linear-gradient(90deg, var(--mia-blue), transparent 80%);
+  width: 100%;
+}
+
+/* Text helpers */
+.txt-muted { color: var(--mia-ink-300); }
+.txt-body { font-family: var(--font-text); font-weight: 400; font-size: var(--t-body); line-height: 1.35; }
+.txt-sm { font-family: var(--font-text); font-weight: 400; font-size: var(--t-body-sm); line-height: 1.4; }
+.txt-lead {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.25;
+  color: var(--mia-ink-500);
+  letter-spacing: -0.01em;
+}
+.slide--brand .txt-lead, .slide--dark .txt-lead { color: rgba(255,255,255,0.82); }
+.slide--brand .txt-muted, .slide--dark .txt-muted { color: rgba(255,255,255,0.6); }
+
+/* ---------- channel cards (4×2 grid) ---------- */
+.channel-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px 20px;
+  min-height: 180px;
+  border-radius: 18px;
+}
+.channel-card .channel-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: block;
+}
+.channel-card .channel-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--mia-graphite);
+}
+.channel-card .channel-sub {
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 1.35;
+  color: var(--mia-ink-300);
+}
+
+/* ---------- dialog mini-mock for slide 04 ---------- */
+.dialog-mock {
+  background: #fff;
+  border: 1px solid rgba(14,24,33,0.08);
+  border-radius: 22px;
+  box-shadow: 0 18px 48px rgba(14,24,33,0.10);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 600px;
+}
+.dialog-mock-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(14,24,33,0.06);
+  flex-shrink: 0;
+}
+.dialog-mock-avatar {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--mia-blue-050);
+  color: var(--mia-blue);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 18px;
+  font-family: var(--font-display);
+}
+.dialog-mock-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1.15;
+  color: var(--mia-graphite);
+}
+.dialog-mock-meta {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-text);
+  font-size: 14px;
+  color: var(--mia-ink-300);
+  margin-top: 4px;
+}
+.dialog-mock-body {
+  flex: 1;
+  padding: 18px 22px;
+  background: #F7F9FC;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+.dialog-mock-day {
+  align-self: center;
+  background: rgba(14,24,33,0.05);
+  color: var(--mia-ink-300);
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-family: var(--font-text);
+  margin-bottom: 4px;
+}
+.dialog-mock-body .bubble {
+  position: relative;
+  max-width: 80%;
+  padding: 12px 16px 22px;
+  border-radius: 16px;
+  font-family: var(--font-text);
+  font-size: 15px;
+  line-height: 1.4;
+  white-space: normal;
+}
+.bubble--peer {
+  align-self: flex-start;
+  background: #fff;
+  color: var(--mia-graphite);
+  border-bottom-left-radius: 4px;
+  box-shadow: 0 1px 2px rgba(14,24,33,0.05);
+}
+.bubble--own {
+  align-self: flex-end;
+  background: var(--mia-blue);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+.bubble--own .bubble-author {
+  font-weight: 700; font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 2px;
+}
+.bubble-time {
+  position: absolute;
+  bottom: 6px; right: 12px;
+  font-size: 11px;
+  opacity: 0.55;
+}
+.bubble--own .bubble-time { color: rgba(255,255,255,0.7); }
+.bubble--peer .bubble-time { color: var(--mia-ink-300); }
+.dialog-mock-input {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 18px;
+  border-top: 1px solid rgba(14,24,33,0.06);
+  background: #fff;
+  flex-shrink: 0;
+}
+.dialog-mock-placeholder {
+  flex: 1;
+  font-family: var(--font-text);
+  font-size: 15px;
+  color: var(--mia-ink-300);
+}
+.dialog-mock-send {
+  background: var(--mia-blue);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* ---------- partners grid ---------- */
+.partners-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+.partner {
+  background: #fff;
+  border: 1px solid rgba(14,24,33,0.06);
+  border-radius: 12px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.partner img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Hide the deck overlay numbering on print to keep chrome clean */
