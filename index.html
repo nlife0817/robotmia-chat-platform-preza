@@ -84,7 +84,7 @@
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:20px;">
     <div class="eyebrow" data-anim="reveal-up">О компании</div>
-    <h2 class="slide-title" data-anim="reveal-up" data-anim-delay="80" style="max-width:1500px;">Команда инженеров AI&nbsp;из&nbsp;<span class="accent">Академгородка</span></h2>
+    <h2 class="slide-title" data-anim="reveal-up" data-anim-delay="80" style="max-width:1500px;">Краткая <span class="accent">история компании</span></h2>
     <p class="txt-lead" data-anim="reveal-up" data-anim-delay="160" style="max-width:1500px;">RobotMIA — продуктовая компания, разрабатывающая голосовых ассистентов, чат-ботов и&nbsp;корпоративные ИИ-сервисы для&nbsp;крупного бизнеса.</p>
   </div>
 
@@ -146,63 +146,50 @@
     <p class="txt-lead" data-anim="reveal-up" data-anim-delay="160" style="max-width:1500px;">Чат-платформа&nbsp;— часть продуктовой линейки.</p>
   </div>
 
-  <!-- 7 продуктов: 4 в первой строке, 3 во второй (центрированы) -->
-  <div style="margin-top:64px; display:flex; flex-direction:column; gap:22px;">
-    <!-- Row 1: 4 cards -->
-    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:22px;">
-      <!-- 1 Голосовой Ассистент -->
-      <div class="card" data-anim="reveal-up" data-anim-delay="240" style="padding:28px 26px;">
-        <div class="icon-chip"><svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4a5 5 0 0 1 5 5v8a5 5 0 0 1-10 0V9a5 5 0 0 1 5-5z"/><path d="M6 17a10 10 0 0 0 20 0M16 27v3"/></svg></div>
-        <div style="font-weight:700; font-size:23px; margin-top:18px; line-height:1.2;">Голосовой Ассистент</div>
-        <p class="txt-sm txt-muted" style="margin:10px 0 0; font-size:17px;">Принимает звонки, отвечает на&nbsp;вопросы и&nbsp;маршрутизирует обращения.</p>
-      </div>
+  <!-- 6 продуктов: 3×2, чат-платформа в центре верхнего ряда (highlight) -->
+  <div style="margin-top:64px; display:grid; grid-template-columns:repeat(3, 1fr); gap:28px;">
 
-      <!-- 2 Чат-платформа (highlight — current) -->
-      <div class="card card--brand anim-highlight-ring" data-anim="reveal-up" data-anim-delay="320" style="padding:28px 26px; position:relative;">
-        <div style="position:absolute; top:16px; right:16px; padding:5px 12px; background:#fff; color:var(--mia-blue); border-radius:999px; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Вы&nbsp;здесь</div>
-        <div style="width:52px; height:52px; border-radius:14px; background:rgba(255,255,255,0.18); color:#fff; display:flex; align-items:center; justify-content:center;"><svg width="26" height="26"><use href="#i-msg"></use></svg></div>
-        <div style="font-weight:700; font-size:23px; margin-top:18px; line-height:1.2; color:#fff;">Чат-платформа</div>
-        <p class="txt-sm" style="margin:10px 0 0; font-size:17px; color:rgba(255,255,255,0.88);">Единое окно для&nbsp;общения с&nbsp;клиентами во&nbsp;всех мессенджерах.</p>
-      </div>
-
-      <!-- 3 Чат-бот -->
-      <div class="card" data-anim="reveal-up" data-anim-delay="400" style="padding:28px 26px;">
-        <div class="icon-chip"><svg width="26" height="26"><use href="#i-chat"></use></svg></div>
-        <div style="font-weight:700; font-size:23px; margin-top:18px; line-height:1.2;">Чат-бот</div>
-        <p class="txt-sm txt-muted" style="margin:10px 0 0; font-size:17px;">Автоматизация диалогов в&nbsp;чатах без&nbsp;участия менеджера.</p>
-      </div>
-
-      <!-- 4 Платформа EVA -->
-      <div class="card" data-anim="reveal-up" data-anim-delay="480" style="padding:28px 26px;">
-        <div class="icon-chip"><svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="20" height="20" rx="3"/><path d="M6 12h20M12 6v20"/></svg></div>
-        <div style="font-weight:700; font-size:23px; margin-top:18px; line-height:1.2;">Платформа&nbsp;EVA</div>
-        <p class="txt-sm txt-muted" style="margin:10px 0 0; font-size:17px;">Партнёрское направление&nbsp;— платформа для&nbsp;сборки роботов.</p>
-      </div>
+    <!-- 1 Голосовой Ассистент -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="240" style="padding:40px 36px;">
+      <div class="icon-chip"><svg width="30" height="30" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4a5 5 0 0 1 5 5v8a5 5 0 0 1-10 0V9a5 5 0 0 1 5-5z"/><path d="M6 17a10 10 0 0 0 20 0M16 27v3"/></svg></div>
+      <div style="font-weight:700; font-size:30px; margin-top:24px; line-height:1.15;">Голосовой Ассистент</div>
+      <p class="txt-sm txt-muted" style="margin:14px 0 0; font-size:20px; line-height:1.4;">Принимает звонки, отвечает на&nbsp;вопросы и&nbsp;маршрутизирует обращения.</p>
     </div>
 
-    <!-- Row 2: 3 cards centered -->
-    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:22px;">
-      <div></div>
-      <!-- 5 ИИ-ассистент по БЗ -->
-      <div class="card" data-anim="reveal-up" data-anim-delay="560" style="padding:28px 26px;">
-        <div class="icon-chip"><svg width="26" height="26"><use href="#i-book"></use></svg></div>
-        <div style="font-weight:700; font-size:23px; margin-top:18px; line-height:1.2;">ИИ-ассистент по&nbsp;БЗ</div>
-        <p class="txt-sm txt-muted" style="margin:10px 0 0; font-size:17px;">Внутренняя справочная для&nbsp;сотрудников на&nbsp;основе ИИ.</p>
-      </div>
+    <!-- 2 Чат-платформа (highlight — current) -->
+    <div class="card card--brand anim-highlight-ring" data-anim="reveal-up" data-anim-delay="320" style="padding:40px 36px; position:relative;">
+      <div style="position:absolute; top:20px; right:20px; padding:6px 14px; background:#fff; color:var(--mia-blue); border-radius:999px; font-size:13px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Вы&nbsp;здесь</div>
+      <div style="width:60px; height:60px; border-radius:16px; background:rgba(255,255,255,0.18); color:#fff; display:flex; align-items:center; justify-content:center;"><svg width="30" height="30"><use href="#i-msg"></use></svg></div>
+      <div style="font-weight:700; font-size:30px; margin-top:24px; line-height:1.15; color:#fff;">Чат-платформа</div>
+      <p class="txt-sm" style="margin:14px 0 0; font-size:20px; line-height:1.4; color:rgba(255,255,255,0.9);">Единое окно для&nbsp;общения с&nbsp;клиентами во&nbsp;всех мессенджерах.</p>
+    </div>
 
-      <!-- 6 Детектор автоответчиков -->
-      <div class="card" data-anim="reveal-up" data-anim-delay="640" style="padding:28px 26px;">
-        <div class="icon-chip"><svg width="26" height="26"><use href="#i-phone"></use></svg></div>
-        <div style="font-weight:700; font-size:23px; margin-top:18px; line-height:1.2;">Детектор автоответчиков</div>
-        <p class="txt-sm txt-muted" style="margin:10px 0 0; font-size:17px;">Соединяет с&nbsp;оператором только живых людей. Точность&nbsp;99,9%.</p>
-      </div>
+    <!-- 3 Чат-бот -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="400" style="padding:40px 36px;">
+      <div class="icon-chip"><svg width="30" height="30"><use href="#i-chat"></use></svg></div>
+      <div style="font-weight:700; font-size:30px; margin-top:24px; line-height:1.15;">Чат-бот</div>
+      <p class="txt-sm txt-muted" style="margin:14px 0 0; font-size:20px; line-height:1.4;">Автоматизация диалогов в&nbsp;чатах без&nbsp;участия менеджера.</p>
+    </div>
 
-      <!-- 7 Скоринг -->
-      <div class="card" data-anim="reveal-up" data-anim-delay="720" style="padding:28px 26px;">
-        <div class="icon-chip"><svg width="26" height="26"><use href="#i-clock"></use></svg></div>
-        <div style="font-weight:700; font-size:23px; margin-top:18px; line-height:1.2;">Скоринг звонка</div>
-        <p class="txt-sm txt-muted" style="margin:10px 0 0; font-size:17px;">Расчёт оптимального времени звонка и&nbsp;прогноз отклика клиентов.</p>
-      </div>
+    <!-- 4 ИИ-ассистент по БЗ -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="480" style="padding:40px 36px;">
+      <div class="icon-chip"><svg width="30" height="30"><use href="#i-book"></use></svg></div>
+      <div style="font-weight:700; font-size:30px; margin-top:24px; line-height:1.15;">ИИ-ассистент по&nbsp;БЗ</div>
+      <p class="txt-sm txt-muted" style="margin:14px 0 0; font-size:20px; line-height:1.4;">Внутренняя справочная для&nbsp;сотрудников на&nbsp;основе ИИ.</p>
+    </div>
+
+    <!-- 5 Детектор автоответчиков -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="560" style="padding:40px 36px;">
+      <div class="icon-chip"><svg width="30" height="30"><use href="#i-phone"></use></svg></div>
+      <div style="font-weight:700; font-size:30px; margin-top:24px; line-height:1.15;">Детектор автоответчиков</div>
+      <p class="txt-sm txt-muted" style="margin:14px 0 0; font-size:20px; line-height:1.4;">Соединяет с&nbsp;оператором только живых людей. Точность&nbsp;99,9%.</p>
+    </div>
+
+    <!-- 6 Скоринг -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="640" style="padding:40px 36px;">
+      <div class="icon-chip"><svg width="30" height="30"><use href="#i-clock"></use></svg></div>
+      <div style="font-weight:700; font-size:30px; margin-top:24px; line-height:1.15;">Скоринг звонка</div>
+      <p class="txt-sm txt-muted" style="margin:14px 0 0; font-size:20px; line-height:1.4;">Расчёт оптимального времени звонка и&nbsp;прогноз отклика клиентов.</p>
     </div>
   </div>
 </section>

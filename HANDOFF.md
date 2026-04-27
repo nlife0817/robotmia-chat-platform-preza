@@ -105,7 +105,13 @@
 
 ```
 presfromclaude/
-├── index.html              ← главный файл, 17 слайдов
+├── index.html              ← СГЕНЕРИРОВАННЫЙ артефакт (не править руками!)
+├── slides/                 ← ИСТОЧНИК ПРАВДЫ — каждый слайд отдельным файлом
+│   ├── _head.html          ← <head>, sprite, <deck-stage>
+│   ├── 01-cover.html ... 17-contacts.html
+│   └── _foot.html          ← </deck-stage>, inline <style>, </body></html>
+├── build.js                ← сборщик: slides/ → index.html
+├── split.js                ← одноразовый разбиватель (использовался в Phase 0)
 ├── styles.css              ← брендовые стили
 ├── animations.css          ← движок анимаций (CSS)
 ├── animations.js           ← движок анимаций (JS)
@@ -118,6 +124,13 @@ presfromclaude/
 ├── screens/                ← реальные HTML-макеты продукта (для слайдов 07, 12, 13)
 └── uploads/                ← рабочие скриншоты пользователя
 ```
+
+### Workflow правок
+
+1. Правишь файл в `slides/NN-*.html` (один слайд = один файл, 50–200 строк).
+2. `node build.js` → пересобирает `index.html`.
+3. Открыть `index.html` в Chrome для проверки.
+4. Коммитишь и slides/, и index.html (Chrome открывает file:// напрямую — проще не игнорить).
 
 ## Документация чат-платформы (для I-3, I-6)
 
