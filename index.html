@@ -79,80 +79,83 @@
 
 </section>
 
-<!-- ===================== 02 О КОМПАНИИ ===================== -->
+<!-- ===================== 02 О КОМПАНИИ (краткий вариант) ===================== -->
 <section class="slide" data-label="02 О компании" data-screen-label="02 02 О компании" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="1">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:28px;">
-    <div class="eyebrow">О компании</div>
-    <h2 class="slide-title" style="max-width:1500px; font-size:72px;">Разрабатываем&nbsp;AI-ассистентов для&nbsp;крупного&nbsp;бизнеса <span class="accent">с&nbsp;2017&nbsp;года</span></h2>
+    <div class="eyebrow" data-anim="reveal-up">О компании</div>
+    <h2 class="slide-title" data-anim="reveal-up" data-anim-delay="80" style="max-width:1500px;">Команда инженеров AI&nbsp;из&nbsp;<span class="accent">Академгородка</span></h2>
+    <p class="txt-lead" data-anim="reveal-up" data-anim-delay="160" style="max-width:1500px;">RobotMIA — продуктовая компания, разрабатывающая голосовых и&nbsp;текстовых ассистентов, чат-ботов и&nbsp;корпоративные ИИ-сервисы для&nbsp;крупного бизнеса.</p>
   </div>
 
-  <!-- Timeline -->
-  <div style="margin-top:56px; position:relative;">
-    <div style="height:4px; background:linear-gradient(90deg, var(--mia-blue-200), var(--mia-blue)); border-radius:2px; margin:0 40px;"></div>
-    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:48px; margin-top:-14px;">
-      <div style="display:flex; flex-direction:column; align-items:flex-start; gap:20px;">
-        <div style="width:24px; height:24px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 8px rgba(19,96,243,0.12); margin-left:32px;"></div>
-        <div class="card card--sky" style="width:100%; padding:20px 28px;">
-          <div style="font-size:48px; font-weight:900; color:var(--mia-blue); line-height:1;">2017</div>
-          <div style="font-family:var(--font-text); font-size:24px; color:var(--mia-ink-500); margin-top:12px; line-height:1.35;">Запуск первого клиента по&nbsp;Голосовому ассистенту</div>
+  <div style="display:grid; grid-template-columns:1.2fr 1.4fr; gap:64px; margin-top:64px; align-items:start;">
+
+    <!-- Left: 3 факта -->
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <div class="card" data-anim="reveal-up" data-anim-delay="240" style="padding:32px 36px; display:flex; align-items:center; gap:28px;">
+        <div style="font-family:var(--font-display); font-weight:900; font-size:84px; color:var(--mia-blue); line-height:1; flex-shrink:0;">8&nbsp;лет</div>
+        <div>
+          <div style="font-weight:700; font-size:26px; line-height:1.2; color:var(--mia-graphite);">в&nbsp;разработке AI-решений</div>
+          <div class="txt-sm txt-muted" style="margin-top:6px;">с&nbsp;2017&nbsp;— первый клиент по&nbsp;голосовому ассистенту</div>
         </div>
       </div>
-      <div style="display:flex; flex-direction:column; align-items:flex-start; gap:20px;">
-        <div style="width:24px; height:24px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 8px rgba(19,96,243,0.12); margin-left:32px;"></div>
-        <div class="card card--sky" style="width:100%; padding:20px 28px;">
-          <div style="font-size:48px; font-weight:900; color:var(--mia-blue); line-height:1;">2020</div>
-          <div style="font-family:var(--font-text); font-size:24px; color:var(--mia-ink-500); margin-top:12px; line-height:1.35;">Первые пилоты по&nbsp;модулю детекции автоответчиков</div>
+      <div class="card" data-anim="reveal-up" data-anim-delay="320" style="padding:32px 36px; display:flex; align-items:center; gap:28px;">
+        <div style="font-family:var(--font-display); font-weight:900; font-size:84px; color:var(--mia-blue); line-height:1; flex-shrink:0;">90+</div>
+        <div>
+          <div style="font-weight:700; font-size:26px; line-height:1.2; color:var(--mia-graphite);">сотрудников в&nbsp;команде</div>
+          <div class="txt-sm txt-muted" style="margin-top:6px;">ML, AI&nbsp;/ LLM, NLP, Data Science, голосовые технологии</div>
         </div>
       </div>
-      <div style="display:flex; flex-direction:column; align-items:flex-start; gap:20px;">
-        <div style="width:24px; height:24px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 8px rgba(19,96,243,0.12); margin-left:32px;"></div>
-        <div class="card card--brand" style="width:100%; padding:20px 28px;">
-          <div style="font-size:48px; font-weight:900; color:#fff; line-height:1;">2025</div>
-          <div style="font-family:var(--font-text); font-size:24px; color:rgba(255,255,255,0.92); margin-top:12px; line-height:1.35;">Запуск чат-платформы — команда более 90&nbsp;сотрудников</div>
+      <div class="card card--brand" data-anim="reveal-up" data-anim-delay="400" style="padding:32px 36px; display:flex; align-items:center; gap:28px;">
+        <div style="width:84px; height:84px; border-radius:20px; background:rgba(255,255,255,0.18); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="40" height="40" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l-12 8v14h24V11z"/><path d="M12 25v-7h8v7"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:700; font-size:26px; line-height:1.2; color:#fff;">Академгородок,&nbsp;Новосибирск</div>
+          <div class="txt-sm" style="margin-top:6px; color:rgba(255,255,255,0.82);">технологический&nbsp;центр Сибири — фокус на&nbsp;продуктовой разработке</div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Industries + Partners -->
-  <div style="margin-top:36px; display:grid; grid-template-columns:1fr; gap:24px;">
-    <div>
-      <div style="font-family:var(--font-text); font-size:18px; color:var(--mia-ink-300); margin-bottom:14px; text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">Крупнейшие федеральные компании в&nbsp;отраслях</div>
-      <div style="display:flex; flex-wrap:wrap; gap:10px;">
-        <span class="chip" style="height:40px; font-size:18px; padding:0 18px;">Логистика</span>
-        <span class="chip" style="height:40px; font-size:18px; padding:0 18px;">Медицина</span>
-        <span class="chip" style="height:40px; font-size:18px; padding:0 18px;">Фармацевтика</span>
-        <span class="chip" style="height:40px; font-size:18px; padding:0 18px;">Банки</span>
-        <span class="chip" style="height:40px; font-size:18px; padding:0 18px;">Ритейл</span>
-        <span class="chip" style="height:40px; font-size:18px; padding:0 18px;">E-commerce</span>
-        <span class="chip" style="height:40px; font-size:18px; padding:0 18px;">Фуд-тех</span>
-        <span class="chip" style="height:40px; font-size:18px; padding:0 18px;">Колл-центры</span>
-        <span class="chip" style="height:40px; font-size:18px; padding:0 18px;">Коллекторы</span>
+    <!-- Right: timeline 2017 → 2020 → 2025 -->
+    <div data-anim="reveal-up" data-anim-delay="480" style="position:relative; padding-left:32px;">
+      <!-- vertical line -->
+      <div style="position:absolute; left:8px; top:24px; bottom:24px; width:3px; background:linear-gradient(180deg, var(--mia-blue-200), var(--mia-blue)); border-radius:2px;"></div>
+
+      <!-- 2017 -->
+      <div style="position:relative; margin-bottom:36px;">
+        <div style="position:absolute; left:-32px; top:14px; width:18px; height:18px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 6px rgba(19,96,243,0.14);"></div>
+        <div class="card card--sky" style="padding:24px 28px;">
+          <div style="display:flex; align-items:baseline; gap:14px;">
+            <div style="font-family:var(--font-display); font-weight:900; font-size:46px; color:var(--mia-blue); line-height:1;">2017</div>
+            <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">Старт</div>
+          </div>
+          <div style="font-weight:700; font-size:24px; line-height:1.3; margin-top:10px;">Запуск первого клиента по&nbsp;Голосовому Ассистенту</div>
+        </div>
       </div>
-    </div>
 
-    <!-- Partners grid -->
-    <div>
-      <div style="font-family:var(--font-text); font-size:18px; color:var(--mia-ink-300); margin-bottom:14px; text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">Нам доверяют</div>
-      <div class="partners-grid">
-        <div class="partner"><img src="assets/partners/avito.png" alt="Avito"></div>
-        <div class="partner"><img src="assets/partners/magnit.png" alt="Магнит"></div>
-        <div class="partner"><img src="assets/partners/cdek.png" alt="CDEK"></div>
-        <div class="partner"><img src="assets/partners/pek.png" alt="ПЭК"></div>
-        <div class="partner"><img src="assets/partners/fmlogistic.png" alt="FM Logistic"></div>
-        <div class="partner"><img src="assets/partners/energiya.png" alt="Энергия"></div>
-        <div class="partner"><img src="assets/partners/ks.png" alt="КС"></div>
-        <div class="partner"><img src="assets/partners/smklinika.png" alt="СМ-Клиника"></div>
-        <div class="partner"><img src="assets/partners/kdl.png" alt="KDL"></div>
-        <div class="partner"><img src="assets/partners/zdravsiti.png" alt="ЗдравСити"></div>
-        <div class="partner"><img src="assets/partners/rigla.png" alt="Ригла"></div>
-        <div class="partner"><img src="assets/partners/borjomi.png" alt="IDS Borjomi"></div>
-        <div class="partner"><img src="assets/partners/askona.png" alt="Askona"></div>
-        <div class="partner"><img src="assets/partners/lime.png" alt="LIME"></div>
-        <div class="partner"><img src="assets/partners/centrofinans.png" alt="Центрофинанс"></div>
-        <div class="partner"><img src="assets/partners/mbafinansy.png" alt="МБА Финансы"></div>
-        <div class="partner"><img src="assets/partners/smarter.png" alt="SMARTER"></div>
+      <!-- 2020 -->
+      <div style="position:relative; margin-bottom:36px;">
+        <div style="position:absolute; left:-32px; top:14px; width:18px; height:18px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 6px rgba(19,96,243,0.14);"></div>
+        <div class="card card--sky" style="padding:24px 28px;">
+          <div style="display:flex; align-items:baseline; gap:14px;">
+            <div style="font-family:var(--font-display); font-weight:900; font-size:46px; color:var(--mia-blue); line-height:1;">2020</div>
+            <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">Расширение</div>
+          </div>
+          <div style="font-weight:700; font-size:24px; line-height:1.3; margin-top:10px;">Первые пилоты по&nbsp;модулю детекции автоответчиков (точность&nbsp;99,9%)</div>
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div style="position:relative;">
+        <div style="position:absolute; left:-32px; top:14px; width:22px; height:22px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 8px rgba(19,96,243,0.20);"></div>
+        <div class="card card--brand" style="padding:24px 28px;">
+          <div style="display:flex; align-items:baseline; gap:14px;">
+            <div style="font-family:var(--font-display); font-weight:900; font-size:46px; color:#fff; line-height:1;">2025</div>
+            <div class="txt-sm" style="color:rgba(255,255,255,0.78); text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">Сегодня</div>
+          </div>
+          <div style="font-weight:700; font-size:24px; line-height:1.3; margin-top:10px; color:#fff;">Запуск чат-платформы и&nbsp;новых&nbsp;продуктов · команда&nbsp;более&nbsp;90&nbsp;человек</div>
+        </div>
       </div>
     </div>
   </div>
@@ -160,8 +163,177 @@
   <div class="chrome-foot"><span class="dot"></span><span class="sect">О компании</span></div>
 </section>
 
+<!-- ===================== 03 ПРОДУКТОВАЯ ЛИНЕЙКА ROBOTMIA (новый) ===================== -->
+<section class="slide" data-label="03 Продуктовая линейка" data-screen-label="03 03 Продуктовая линейка" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="2">
+  <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
+  <div style="display:flex; flex-direction:column; gap:24px;">
+    <div class="eyebrow" data-anim="reveal-up">Продукты RobotMIA</div>
+    <h2 class="slide-title" data-anim="reveal-up" data-anim-delay="80" style="max-width:1700px;">Экосистема ИИ-решений&nbsp;— <span class="accent">8&nbsp;продуктов</span> для&nbsp;крупного бизнеса</h2>
+    <p class="txt-lead" data-anim="reveal-up" data-anim-delay="160" style="max-width:1500px;">Чат-платформа&nbsp;— часть продуктовой линейки. Голосовые ассистенты, чат-боты, ИИ-помощники по&nbsp;базе знаний и&nbsp;аналитика&nbsp;— из&nbsp;одних рук.</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:18px; margin-top:48px;">
+    <!-- 1 Голосовой ассистент -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="240" style="padding:24px 22px;">
+      <div class="icon-chip"><svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4a5 5 0 0 1 5 5v8a5 5 0 0 1-10 0V9a5 5 0 0 1 5-5z"/><path d="M6 17a10 10 0 0 0 20 0M16 27v3"/></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-top:14px; line-height:1.2;">Голосовой Ассистент</div>
+      <p class="txt-sm txt-muted" style="margin:8px 0 0; font-size:16px;">Принимает звонки, отвечает на&nbsp;вопросы и&nbsp;маршрутизирует обращения.</p>
+    </div>
+
+    <!-- 2 Чат-бот -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="320" style="padding:24px 22px;">
+      <div class="icon-chip"><svg width="26" height="26"><use href="#i-chat"></use></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-top:14px; line-height:1.2;">Чат-бот</div>
+      <p class="txt-sm txt-muted" style="margin:8px 0 0; font-size:16px;">Автоматизация диалогов в&nbsp;чатах без&nbsp;участия менеджера.</p>
+    </div>
+
+    <!-- 3 Платформа EVA -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="400" style="padding:24px 22px;">
+      <div class="icon-chip"><svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="20" height="20" rx="3"/><path d="M6 12h20M12 6v20"/></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-top:14px; line-height:1.2;">Платформа&nbsp;EVA</div>
+      <p class="txt-sm txt-muted" style="margin:8px 0 0; font-size:16px;">Партнёрское направление&nbsp;— платформа для&nbsp;сборки роботов.</p>
+    </div>
+
+    <!-- 4 Чат-платформа (highlight — current) -->
+    <div class="card card--brand anim-highlight-ring" data-anim="reveal-up" data-anim-delay="480" style="padding:24px 22px; position:relative;">
+      <div style="position:absolute; top:14px; right:14px; padding:4px 12px; background:#fff; color:var(--mia-blue); border-radius:999px; font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Вы&nbsp;здесь</div>
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,255,255,0.18); color:#fff; display:flex; align-items:center; justify-content:center;"><svg width="26" height="26"><use href="#i-msg"></use></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-top:14px; line-height:1.2; color:#fff;">Чат-платформа</div>
+      <p class="txt-sm" style="margin:8px 0 0; font-size:16px; color:rgba(255,255,255,0.88);">Единое окно для&nbsp;общения с&nbsp;клиентами во&nbsp;всех мессенджерах.</p>
+    </div>
+
+    <!-- 5 ИИ-ассистент по базе знаний -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="560" style="padding:24px 22px;">
+      <div class="icon-chip"><svg width="26" height="26"><use href="#i-book"></use></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-top:14px; line-height:1.2;">ИИ-ассистент по&nbsp;БЗ</div>
+      <p class="txt-sm txt-muted" style="margin:8px 0 0; font-size:16px;">Внутренняя справочная для&nbsp;сотрудников на&nbsp;основе ИИ.</p>
+    </div>
+
+    <!-- 6 Детектор автоответчиков -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="640" style="padding:24px 22px;">
+      <div class="icon-chip"><svg width="26" height="26"><use href="#i-phone"></use></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-top:14px; line-height:1.2;">Детектор автоответчиков</div>
+      <p class="txt-sm txt-muted" style="margin:8px 0 0; font-size:16px;">Соединяет с&nbsp;оператором только живых людей. Точность&nbsp;99,9%.</p>
+    </div>
+
+    <!-- 7 Скоринг -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="720" style="padding:24px 22px;">
+      <div class="icon-chip"><svg width="26" height="26"><use href="#i-clock"></use></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-top:14px; line-height:1.2;">Скоринг звонка</div>
+      <p class="txt-sm txt-muted" style="margin:8px 0 0; font-size:16px;">Расчёт оптимального времени звонка и&nbsp;прогноз отклика клиентов.</p>
+    </div>
+
+    <!-- 8 Акцент-корректор -->
+    <div class="card" data-anim="reveal-up" data-anim-delay="800" style="padding:24px 22px;">
+      <div class="icon-chip"><svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22c2 0 3-3 4-7s2-7 4-7 3 3 4 7 2 7 4 7M22 16h6"/></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-top:14px; line-height:1.2;">Акцент-корректор</div>
+      <p class="txt-sm txt-muted" style="margin:8px 0 0; font-size:16px;">В&nbsp;потоковом режиме корректирует акцент оператора. Для&nbsp;зарубежного рынка.</p>
+    </div>
+  </div>
+
+  <!-- Bottom strip: метрики голосового направления -->
+  <div data-anim="reveal-up" data-anim-delay="900" style="margin-top:36px; display:grid; grid-template-columns:repeat(4, 1fr); gap:24px; padding:24px 32px; background:var(--mia-blue-050); border-radius:18px;">
+    <div>
+      <div style="font-family:var(--font-display); font-weight:900; font-size:36px; color:var(--mia-blue); line-height:1;">3—6×</div>
+      <div class="txt-sm" style="color:var(--mia-ink-500); margin-top:6px;">снижение расходов КЦ</div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-display); font-weight:900; font-size:36px; color:var(--mia-blue); line-height:1;">4—5×</div>
+      <div class="txt-sm" style="color:var(--mia-ink-500); margin-top:6px;">падение стоимости лида</div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-display); font-weight:900; font-size:36px; color:var(--mia-blue); line-height:1;">+40%</div>
+      <div class="txt-sm" style="color:var(--mia-ink-500); margin-top:6px;">скорость обработки запросов</div>
+    </div>
+    <div>
+      <div style="font-family:var(--font-display); font-weight:900; font-size:36px; color:var(--mia-blue); line-height:1;">22→1</div>
+      <div class="txt-sm" style="color:var(--mia-ink-500); margin-top:6px;">оператор 1-й линии =&nbsp;робот</div>
+    </div>
+  </div>
+
+  <div class="chrome-foot"><span class="dot"></span><span class="sect">Продукты RobotMIA</span></div>
+</section>
+
+<!-- ===================== 04 НАМ ДОВЕРЯЮТ (новый) ===================== -->
+<section class="slide" data-label="04 Нам доверяют" data-screen-label="04 04 Нам доверяют" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="3">
+  <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
+  <div style="display:flex; flex-direction:column; gap:24px;">
+    <div class="eyebrow" data-anim="reveal-up">Нам доверяют</div>
+    <h2 class="slide-title" data-anim="reveal-up" data-anim-delay="80" style="max-width:1700px;">Крупнейшие <span class="accent">федеральные компании</span> в&nbsp;9&nbsp;отраслях</h2>
+    <p class="txt-lead" data-anim="reveal-up" data-anim-delay="160" style="max-width:1500px;">Логистика и&nbsp;ритейл, медицина и&nbsp;фарма, банки и&nbsp;МФО, e-commerce и&nbsp;колл-центры&nbsp;— RobotMIA внедрён в&nbsp;продуктивные процессы лидеров рынка.</p>
+  </div>
+
+  <!-- 10 крупных лого + отрасль на каждой плашке -->
+  <div style="display:grid; grid-template-columns:repeat(5, 1fr); grid-template-rows:repeat(2, 1fr); gap:20px; margin-top:48px;">
+
+    <div class="card anim-lift" data-anim="pop" data-anim-delay="240" style="padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-height:170px;">
+      <img src="assets/partners/cdek.png" alt="СДЭК" style="max-width:80%; max-height:64px; object-fit:contain;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; font-size:14px; margin-top:14px;">Логистика</div>
+    </div>
+
+    <div class="card anim-lift" data-anim="pop" data-anim-delay="320" style="padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-height:170px;">
+      <img src="assets/partners/pek.png" alt="ПЭК" style="max-width:80%; max-height:64px; object-fit:contain;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; font-size:14px; margin-top:14px;">Логистика</div>
+    </div>
+
+    <div class="card anim-lift" data-anim="pop" data-anim-delay="400" style="padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-height:170px;">
+      <img src="assets/partners/fmlogistic.png" alt="FM Logistic" style="max-width:80%; max-height:64px; object-fit:contain;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; font-size:14px; margin-top:14px;">Логистика</div>
+    </div>
+
+    <div class="card anim-lift" data-anim="pop" data-anim-delay="480" style="padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-height:170px;">
+      <img src="assets/partners/magnit.png" alt="Магнит" style="max-width:80%; max-height:64px; object-fit:contain;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; font-size:14px; margin-top:14px;">Ритейл</div>
+    </div>
+
+    <div class="card anim-lift" data-anim="pop" data-anim-delay="560" style="padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-height:170px;">
+      <img src="assets/partners/askona.png" alt="Askona" style="max-width:80%; max-height:64px; object-fit:contain;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; font-size:14px; margin-top:14px;">Ритейл</div>
+    </div>
+
+    <div class="card anim-lift" data-anim="pop" data-anim-delay="640" style="padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-height:170px;">
+      <img src="assets/partners/rigla.png" alt="Ригла" style="max-width:80%; max-height:64px; object-fit:contain;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; font-size:14px; margin-top:14px;">Фармацевтика</div>
+    </div>
+
+    <div class="card anim-lift" data-anim="pop" data-anim-delay="720" style="padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-height:170px;">
+      <img src="assets/partners/zdravsiti.png" alt="ЗдравСити" style="max-width:80%; max-height:64px; object-fit:contain;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; font-size:14px; margin-top:14px;">Фармацевтика</div>
+    </div>
+
+    <div class="card anim-lift" data-anim="pop" data-anim-delay="800" style="padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-height:170px;">
+      <img src="assets/partners/smklinika.png" alt="СМ-Клиника" style="max-width:80%; max-height:64px; object-fit:contain;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; font-size:14px; margin-top:14px;">Медицина</div>
+    </div>
+
+    <div class="card anim-lift" data-anim="pop" data-anim-delay="900" style="padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-height:170px;">
+      <img src="assets/partners/lime.png" alt="Lime Credit Group" style="max-width:80%; max-height:64px; object-fit:contain;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; font-size:14px; margin-top:14px;">МФО / Финансы</div>
+    </div>
+
+    <div class="card anim-lift" data-anim="pop" data-anim-delay="1000" style="padding:24px; display:flex; flex-direction:column; align-items:center; justify-content:space-between; min-height:170px;">
+      <img src="assets/partners/mbafinansy.png" alt="МБА Финансы" style="max-width:80%; max-height:64px; object-fit:contain;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; font-weight:700; font-size:14px; margin-top:14px;">МФО / Финансы</div>
+    </div>
+  </div>
+
+  <!-- Bottom: компактный список достижений + дополнительных клиентов -->
+  <div style="margin-top:36px; display:grid; grid-template-columns:1.4fr 1fr; gap:32px; align-items:start;">
+    <div data-anim="reveal-up" data-anim-delay="1200" style="padding:20px 28px; background:var(--mia-blue-050); border-radius:14px;">
+      <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; margin-bottom:8px;">И&nbsp;ещё в&nbsp;портфеле</div>
+      <div style="font-size:18px; line-height:1.5; color:var(--mia-ink-500);">Avito, ТК&nbsp;Энергия, Святой Источник, Займер, ЗдравСити, Поликлиника.ру, Сова, Borjomi, SMARTER&nbsp;и&nbsp;другие.</div>
+    </div>
+    <div data-anim="reveal-up" data-anim-delay="1200" style="padding:20px 28px; background:var(--mia-graphite); color:#fff; border-radius:14px;">
+      <div class="txt-sm" style="color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; margin-bottom:8px;">Признание</div>
+      <div style="font-size:17px; line-height:1.5; color:rgba(255,255,255,0.92);">Победители «Платиновая Унция XXV»&nbsp;· Битва Роботов МФО&nbsp;· номинанты «Хрустальной Гарнитуры 2024/2025».</div>
+    </div>
+  </div>
+
+  <div class="chrome-foot"><span class="dot"></span><span class="sect">Нам доверяют</span></div>
+</section>
+
 <!-- ===================== 03 ЗАЧЕМ ЧАТ-ПЛАТФОРМА ===================== -->
-<section class="slide" data-label="03 Зачем бизнесу чат-платформа" data-screen-label="03 03 Зачем бизнесу чат-платформа" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="2">
+<section class="slide" data-label="05 Зачем бизнесу чат-платформа" data-screen-label="05 05 Зачем бизнесу чат-платформа" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="4">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:32px;">
     <div class="eyebrow">Рынок</div>
@@ -202,7 +374,7 @@
 </section>
 
 <!-- ===================== 04 ОМНИКАНАЛЬНОСТЬ ===================== -->
-<section class="slide" data-label="04 Омниканальность" data-screen-label="04 04 Омниканальность" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="3">
+<section class="slide" data-label="06 Омниканальность" data-screen-label="06 06 Омниканальность" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="5">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:32px;">
     <div class="eyebrow">Каналы</div>
@@ -301,7 +473,7 @@
 </section>
 
 <!-- ===================== 06 ДИАЛОГОВОЕ ОКНО ===================== -->
-<section class="slide" data-label="05 Диалоговое окно оператора" data-screen-label="05 05 Диалоговое окно оператора" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="4">
+<section class="slide" data-label="07 Диалоговое окно оператора" data-screen-label="07 07 Диалоговое окно оператора" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="6">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:24px;">
     <div class="eyebrow">Интерфейс</div>
@@ -397,7 +569,7 @@
 </section>
 
 <!-- ===================== 07 ИИ-ИНСТРУМЕНТЫ ===================== -->
-<section class="slide" data-label="06 ИИ-инструменты оператора" data-screen-label="06 06 ИИ-инструменты оператора" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="5">
+<section class="slide" data-label="08 ИИ-инструменты оператора" data-screen-label="08 08 ИИ-инструменты оператора" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="7">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:24px;">
     <div class="eyebrow">ИИ-инструменты</div>
@@ -448,7 +620,7 @@
 </section>
 
 <!-- ===================== 08 ИИ-АТРИБУТЫ ===================== -->
-<section class="slide" data-label="07 ИИ-атрибуты" data-screen-label="07 07 ИИ-атрибуты" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="6">
+<section class="slide" data-label="09 ИИ-атрибуты" data-screen-label="09 09 ИИ-атрибуты" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="8">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:24px;">
     <div class="eyebrow">ИИ-атрибуты</div>
@@ -515,7 +687,7 @@
 </section>
 
 <!-- ===================== 09 ИИ-СУФЛЁР ===================== -->
-<section class="slide" data-label="08 ИИ-суфлёр на базе знаний" data-screen-label="08 08 ИИ-суфлёр на базе знаний" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="7">
+<section class="slide" data-label="10 ИИ-суфлёр на базе знаний" data-screen-label="10 10 ИИ-суфлёр на базе знаний" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="9">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:24px;">
     <div class="eyebrow">ИИ-суфлёр</div>
@@ -575,7 +747,7 @@
 </section>
 
 <!-- ===================== 10 ЭКОНОМИЯ С СУФЛЁРОМ ===================== -->
-<section class="slide" data-label="09 Экономия с ИИ-суфлёром" data-screen-label="09 09 Экономия с ИИ-суфлёром" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="8">
+<section class="slide" data-label="11 Экономия с ИИ-суфлёром" data-screen-label="11 11 Экономия с ИИ-суфлёром" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="10">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:24px;">
     <div class="eyebrow">Эффект</div>
@@ -636,7 +808,7 @@
 </section>
 
 <!-- ===================== 11 АУДИТ ===================== -->
-<section class="slide" data-label="10 Раздел Аудит" data-screen-label="10 10 Раздел Аудит" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="9">
+<section class="slide" data-label="12 Раздел Аудит" data-screen-label="12 12 Раздел Аудит" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="11">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:24px;">
     <div class="eyebrow">Аналитика</div>
@@ -699,7 +871,7 @@
 </section>
 
 <!-- ===================== 12 ГИБКИЕ НАСТРОЙКИ ===================== -->
-<section class="slide slide--brand" data-label="11 Гибкие настройки платформы" data-screen-label="11 11 Гибкие настройки платформы" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="10">
+<section class="slide slide--brand" data-label="13 Гибкие настройки платформы" data-screen-label="13 13 Гибкие настройки платформы" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="12">
   <img class="chrome-logo" src="assets/logo-allwhite.svg" alt="ROBOTMIA" style="opacity:0.95;">
   <svg class="pattern" style="top:-180px; right:-220px; width:1000px; height:1000px;" viewBox="0 0 500 500" fill="none" stroke="rgba(198,215,248,0.35)" stroke-width="0.6">
     <circle cx="250" cy="250" r="80"></circle>
@@ -748,7 +920,7 @@
 </section>
 
 <!-- ===================== 12 КП — Структура из 3 частей ===================== -->
-<section class="slide" data-label="12 КП — структура" data-screen-label="12 12 КП — структура" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="11">
+<section class="slide" data-label="14 КП — структура" data-screen-label="14 14 КП — структура" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="13">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:20px;">
     <div class="eyebrow">Коммерческое предложение</div>
@@ -809,7 +981,7 @@
 </section>
 
 <!-- ===================== 13 КП — Расчёт по активным операторам ===================== -->
-<section class="slide" data-label="13 КП — расчёт операторов" data-screen-label="13 13 КП — расчёт операторов" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="12">
+<section class="slide" data-label="15 КП — расчёт операторов" data-screen-label="15 15 КП — расчёт операторов" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="14">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:20px;">
     <div class="eyebrow">Часть 1 · Активные операторы</div>
@@ -891,7 +1063,7 @@
 </section>
 
 <!-- ===================== 14 КП — Цены по уровням ===================== -->
-<section class="slide" data-label="14 КП — цены" data-screen-label="14 14 КП — цены" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="13">
+<section class="slide" data-label="16 КП — цены" data-screen-label="16 16 КП — цены" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="15">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:20px;">
     <div class="eyebrow">Условия и&nbsp;тарифы</div>
@@ -976,7 +1148,7 @@
 </section>
 
 <!-- ===================== 14 КОНТАКТЫ ===================== -->
-<section class="slide slide--dark" data-label="15 Контакты" data-screen-label="15 15 Контакты" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="14">
+<section class="slide slide--dark" data-label="17 Контакты" data-screen-label="17 17 Контакты" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="16">
   <svg class="pattern" style="top:-300px; left:-200px; width:1400px; height:1400px; opacity:0.14" viewBox="0 0 500 500" fill="none" stroke="#7BBDFF" stroke-width="0.5">
     <g>
       <circle cx="250" cy="250" r="60"></circle>
