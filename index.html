@@ -6,8 +6,13 @@
 <title>Чат-платформа RobotMIA — Презентация</title>
 <link rel="stylesheet" href="styles.css?v=6">
 <link rel="stylesheet" href="animations.css?v=1">
+<link rel="stylesheet" href="scenes.css?v=1">
+<link rel="stylesheet" href="scenes-gsap.css?v=1">
 <script src="deck-stage.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="animations.js?v=1" defer></script>
+<script src="scenes.js?v=1" defer></script>
+<script src="scenes-gsap.js?v=1" defer></script>
 <style id="deck-stage-print-page">@page { size: 1920px 1080px; margin: 0; } @media print { html, body { margin: 0 !important; padding: 0 !important; background: none !important; overflow: visible !important; height: auto !important; } * { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }</style></head>
 <body data-cc-id="cc-1" style="cursor: crosshair; background-color: rgb(222, 220, 220);">
 
@@ -109,25 +114,29 @@
 
   <!-- Горизонтальный timeline 2017 → 2020 → 2025 (компактно) -->
   <div data-anim="reveal-up" data-anim-delay="480" style="margin-top:64px; position:relative; padding:0 60px;">
-    <div style="position:absolute; left:80px; right:80px; top:18px; height:2px; background:linear-gradient(90deg, var(--mia-blue-200) 0%, var(--mia-blue) 100%);"></div>
+    <!-- Линия проходит через центр точек: точки 18×18 → центр на 9px от верха ряда точек.
+         Ряд точек начинается с margin-top:14px от верха блока (через высоту "ободка").
+         Линия по центру точек: top = 14px + 9px = 23px. -->
+    <div style="position:absolute; left:80px; right:80px; top:23px; height:2px; background:linear-gradient(90deg, var(--mia-blue-200) 0%, var(--mia-blue) 100%); z-index:0;"></div>
 
-    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:48px;">
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:48px; position:relative; z-index:1;">
       <div style="display:flex; flex-direction:column; gap:18px;">
-        <div style="width:18px; height:18px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 6px rgba(19,96,243,0.14); margin-left:14px;"></div>
+        <div style="width:18px; height:18px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 6px rgba(19,96,243,0.14); margin:14px 0 0 14px;"></div>
         <div>
           <div style="font-family:var(--font-display); font-weight:900; font-size:42px; color:var(--mia-blue); line-height:1;">2017</div>
           <div style="font-size:21px; line-height:1.3; color:var(--mia-graphite); margin-top:10px; font-weight:600; max-width:380px;">Запуск первого клиента по&nbsp;Голосовому Ассистенту</div>
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:18px;">
-        <div style="width:18px; height:18px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 6px rgba(19,96,243,0.14); margin-left:14px;"></div>
+        <div style="width:18px; height:18px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 6px rgba(19,96,243,0.14); margin:14px 0 0 14px;"></div>
         <div>
           <div style="font-family:var(--font-display); font-weight:900; font-size:42px; color:var(--mia-blue); line-height:1;">2020</div>
           <div style="font-size:21px; line-height:1.3; color:var(--mia-graphite); margin-top:10px; font-weight:600; max-width:380px;">Пилоты по&nbsp;модулю детекции автоответчиков (точность&nbsp;99,9%)</div>
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:18px;">
-        <div style="width:22px; height:22px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 8px rgba(19,96,243,0.22); margin-left:12px;"></div>
+        <!-- Большая точка (22px) — центр на 11px → нужно сместить так, чтобы её центр был на 23px от верха блока -->
+        <div style="width:22px; height:22px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 8px rgba(19,96,243,0.22); margin:12px 0 0 12px;"></div>
         <div>
           <div style="font-family:var(--font-display); font-weight:900; font-size:42px; color:var(--mia-blue); line-height:1;">2025</div>
           <div style="font-size:21px; line-height:1.3; color:var(--mia-graphite); margin-top:10px; font-weight:600; max-width:420px;">Запуск чат-платформы и&nbsp;новых&nbsp;продуктов</div>
@@ -272,49 +281,8 @@
   <div class="chrome-foot"><span class="dot"></span><span class="sect">Нам доверяют</span></div>
 </section>
 
-<!-- ===================== 03 ЗАЧЕМ ЧАТ-ПЛАТФОРМА ===================== -->
-<section class="slide" data-label="05 Зачем бизнесу чат-платформа" data-screen-label="05 05 Зачем бизнесу чат-платформа" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="4">
-  <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
-  <div style="display:flex; flex-direction:column; gap:32px;">
-    <div class="eyebrow">Рынок</div>
-    <h2 class="slide-title" style="max-width:1500px;">Коммуникация с&nbsp;клиентами <span class="accent">уходит в&nbsp;чаты</span></h2>
-    <p class="txt-lead" style="max-width:1500px;">Чат-платформа решает пять задач одновременно — от перетока звонков в&nbsp;мессенджеры до контроля работы операторов.</p>
-  </div>
-
-  <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:20px; margin-top:64px;">
-    <!-- 5 reasons -->
-    <div class="card" style="padding:32px 28px;">
-      <div class="icon-chip brand"><svg width="28" height="28"><use href="#i-phone"></use></svg></div>
-      <h3 style="font-size:28px; font-weight:700; line-height:1.2; margin:24px 0 12px;">Переток звонков в&nbsp;чаты</h3>
-      <p class="txt-sm txt-muted" style="margin:0;">Ответ в формате чата становится предпочтительнее звонка для клиентов.</p>
-    </div>
-    <div class="card" style="padding:32px 28px;">
-      <div class="icon-chip brand"><svg width="28" height="28"><use href="#i-grid"></use></svg></div>
-      <h3 style="font-size:28px; font-weight:700; line-height:1.2; margin:24px 0 12px;">Омниканальность</h3>
-      <p class="txt-sm txt-muted" style="margin:0;">Единое окно для всех мессенджеров и&nbsp;соцсетей компании.</p>
-    </div>
-    <div class="card" style="padding:32px 28px;">
-      <div class="icon-chip brand"><svg width="28" height="28"><use href="#i-spark"></use></svg></div>
-      <h3 style="font-size:28px; font-weight:700; line-height:1.2; margin:24px 0 12px;">Расширение функционала</h3>
-      <p class="txt-sm txt-muted" style="margin:0;">Оплата, бронирование и&nbsp;доставка доступны прямо внутри чата.</p>
-    </div>
-    <div class="card" style="padding:32px 28px;">
-      <div class="icon-chip brand"><svg width="28" height="28"><use href="#i-eye"></use></svg></div>
-      <h3 style="font-size:28px; font-weight:700; line-height:1.2; margin:24px 0 12px;">Контроль и&nbsp;аналитика</h3>
-      <p class="txt-sm txt-muted" style="margin:0;">Метрики и статистика по&nbsp;работе операторов в&nbsp;одной системе.</p>
-    </div>
-    <div class="card card--brand" style="padding:32px 28px;">
-      <div class="icon-chip" style="background:rgba(255,255,255,0.2); color:#fff;"><svg width="28" height="28"><use href="#i-ruble"></use></svg></div>
-      <h3 style="font-size:28px; font-weight:700; line-height:1.2; margin:24px 0 12px;">Сокращение расходов</h3>
-      <p class="txt-sm" style="margin:0; color:rgba(255,255,255,0.88);">Чаты обходятся дешевле звонков и&nbsp;SMS при том же объёме обращений.</p>
-    </div>
-  </div>
-
-  <div class="chrome-foot"><span class="dot"></span><span class="sect">Рынок</span></div>
-</section>
-
-<!-- ===================== 04 ОМНИКАНАЛЬНОСТЬ ===================== -->
-<section class="slide" data-label="06 Омниканальность" data-screen-label="06 06 Омниканальность" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="5">
+<!-- ===================== 05 ОМНИКАНАЛЬНОСТЬ ===================== -->
+<section class="slide" data-label="05 Омниканальность" data-screen-label="05 05 Омниканальность" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="4">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:32px;">
     <div class="eyebrow">Каналы</div>
@@ -323,49 +291,47 @@
   </div>
 
   <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:60px; margin-top:48px; align-items:start;">
-    <!-- Channels grid 4×2 -->
+    <!-- Channels grid 4×2: Веб → ВК → МАКС → Telegram → WhatsApp → Авито → ОК → И другие -->
     <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px;">
-      <div class="card channel-card">
-        <img src="assets/channels/telegram.svg" alt="Telegram" class="channel-icon">
-        <div class="channel-name">Telegram</div>
-        <div class="channel-sub">Боты и&nbsp;клиентские диалоги</div>
-      </div>
-      <div class="card channel-card">
-        <img src="assets/channels/whatsapp.svg" alt="WhatsApp" class="channel-icon">
-        <div class="channel-name">WhatsApp</div>
-        <div class="channel-sub">Business&nbsp;API и&nbsp;номера</div>
-      </div>
-      <div class="card channel-card">
-        <img src="assets/channels/max.svg" alt="MAX" class="channel-icon">
-        <div class="channel-name">MAX</div>
-        <div class="channel-sub">Национальный мессенджер</div>
-      </div>
-      <div class="card channel-card">
-        <img src="assets/channels/vk.svg" alt="ВКонтакте" class="channel-icon">
-        <div class="channel-name">ВКонтакте</div>
-        <div class="channel-sub">Сообщества и&nbsp;ЛС</div>
-      </div>
-      <div class="card channel-card">
-        <img src="assets/channels/avito.svg" alt="Авито" class="channel-icon">
-        <div class="channel-name">Авито</div>
-        <div class="channel-sub">Чат с&nbsp;покупателями</div>
-      </div>
-      <div class="card channel-card">
-        <img src="assets/channels/ok.svg" alt="Одноклассники" class="channel-icon">
-        <div class="channel-name">Одноклассники</div>
-        <div class="channel-sub">Группы и&nbsp;личные чаты</div>
-      </div>
       <div class="card channel-card">
         <img src="assets/channels/web.svg" alt="Веб-виджет" class="channel-icon">
         <div class="channel-name">Веб-виджет</div>
         <div class="channel-sub">Чат на&nbsp;ваш сайт</div>
       </div>
-      <div class="card channel-card" style="background:linear-gradient(135deg,var(--mia-blue) 0%, var(--mia-blue-navy) 100%); color:#fff; border:none;">
-        <div class="channel-icon" style="background:rgba(255,255,255,0.16); border-radius:14px; display:flex; align-items:center; justify-content:center;">
-          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
-        </div>
-        <div class="channel-name" style="color:#fff;">И&nbsp;другие</div>
-        <div class="channel-sub" style="color:rgba(255,255,255,0.78);">Подключим по&nbsp;API за&nbsp;неделю</div>
+      <div class="card channel-card" style="border:2px solid var(--mia-blue-200); background:var(--mia-blue-050);">
+        <img src="assets/channels-original/VK_Compact_Logo_(2021-present).svg" alt="ВКонтакте" class="channel-icon">
+        <div class="channel-name">ВКонтакте</div>
+        <div class="channel-sub">Отвечайте от&nbsp;лица сообщества</div>
+      </div>
+      <div class="card channel-card" style="border:2px solid var(--mia-blue-200); background:var(--mia-blue-050);">
+        <img src="assets/channels-original/Логотип_MAX.svg" alt="МАКС" class="channel-icon">
+        <div class="channel-name">МАКС</div>
+        <div class="channel-sub">Национальный мессенджер</div>
+      </div>
+      <div class="card channel-card">
+        <img src="assets/channels-original/Telegram_2019_Logo.svg" alt="Telegram" class="channel-icon">
+        <div class="channel-name">Telegram</div>
+        <div class="channel-sub">Подключите вашего бота</div>
+      </div>
+      <div class="card channel-card">
+        <img src="assets/channels-original/2062095_application_chat_communication_logo_whatsapp_icon.svg" alt="WhatsApp" class="channel-icon">
+        <div class="channel-name">WhatsApp</div>
+        <div class="channel-sub">Business&nbsp;API</div>
+      </div>
+      <div class="card channel-card">
+        <img src="assets/channels-original/Avito_logo.svg" alt="Авито" class="channel-icon" style="width:64px; height:64px;">
+        <div class="channel-name">Авито</div>
+        <div class="channel-sub">Чат с&nbsp;покупателями</div>
+      </div>
+      <div class="card channel-card">
+        <img src="assets/channels-original/Logo_Odnoklassniki_2023.svg" alt="Одноклассники" class="channel-icon">
+        <div class="channel-name">Одноклассники</div>
+        <div class="channel-sub">Отвечайте в&nbsp;сообществе</div>
+      </div>
+      <!-- "И другие" — без карточки, плавающий текст с иконкой -->
+      <div style="display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding:20px 24px; gap:12px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--mia-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        <div class="channel-name" style="color:var(--mia-ink-500);">И&nbsp;другие</div>
       </div>
     </div>
 
@@ -376,7 +342,7 @@
         <div>
           <div class="dialog-mock-name">Алексей Соколов</div>
           <div class="dialog-mock-meta">
-            <img src="assets/channels/vk.svg" alt="" style="width:14px;height:14px;border-radius:3px;">
+            <img src="assets/channels-original/VK_Compact_Logo_(2021-present).svg" alt="" style="width:14px;height:14px;border-radius:3px;">
             ВКонтакте · vktest
           </div>
         </div>
@@ -412,160 +378,199 @@
   <div class="chrome-foot" style="display:none;"><span class="dot"></span><span class="sect">Омниканальность</span></div>
 </section>
 
-<!-- ===================== 06 ДИАЛОГОВОЕ ОКНО ===================== -->
-<section class="slide" data-label="07 Диалоговое окно оператора" data-screen-label="07 07 Диалоговое окно оператора" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="6">
+<!-- ===================== 06 ИИ-ИНСТРУМЕНТЫ (с анимацией) ===================== -->
+<style>
+  /* Полный цикл 10 с */
+  @keyframes ait-type-pre {
+    0%       { clip-path: inset(0 100% 0 0); opacity: 1; }
+    30%      { clip-path: inset(0 0 0 0);   opacity: 1; }
+    45%      { clip-path: inset(0 0 0 0);   opacity: 1; }
+    50%      { clip-path: inset(0 0 0 0);   opacity: 0; }
+    100%     { clip-path: inset(0 0 0 0);   opacity: 0; }
+  }
+  @keyframes ait-corrected {
+    0%, 48%   { opacity: 0; }
+    53%, 92%  { opacity: 1; }
+    97%, 100% { opacity: 0; }
+  }
+  @keyframes ait-btn-pulse {
+    0%, 36%   { background: transparent; color: var(--mia-blue); border-color: rgba(19,96,243,0.18); transform: scale(1); }
+    40%, 50%  { background: var(--mia-blue); color: #fff; border-color: var(--mia-blue); transform: scale(1.08); box-shadow: 0 6px 18px rgba(19,96,243,0.32); }
+    54%, 100% { background: transparent; color: var(--mia-blue); border-color: rgba(19,96,243,0.18); transform: scale(1); box-shadow: none; }
+  }
+  @keyframes ait-cursor-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100%{ opacity: 0; }
+  }
+  .ait-stage      { position: relative; }
+  .ait-text-pre   { animation: ait-type-pre 10s linear infinite; }
+  .ait-text-post  { position: absolute; inset: 0; padding: 22px 24px; animation: ait-corrected 10s ease-in-out infinite; }
+  .ait-cursor     { display: inline-block; width: 2px; height: 22px; background: var(--mia-blue); margin-left: 1px; vertical-align: -3px; animation: ait-cursor-blink 0.6s steps(2) infinite; }
+  .ait-typo       { text-decoration: underline; text-decoration-color: #FF4053; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+  .ait-tools-row  { display: flex; gap: 10px; align-items: center; }
+  .ait-tool-btn   { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; background: #fff; border: 1.5px solid rgba(19,96,243,0.18); color: var(--mia-blue); transition: none; }
+  .ait-tool-btn--fix { animation: ait-btn-pulse 10s ease-in-out infinite; }
+</style>
+
+<section class="slide" data-label="06 ИИ-инструменты для оператора" data-screen-label="06 06 ИИ-инструменты для оператора" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
-  <div style="display:flex; flex-direction:column; gap:24px;">
-    <div class="eyebrow">Интерфейс</div>
-    <h2 class="slide-title" style="max-width:1400px;">Диалоговое окно оператора</h2>
-  </div>
 
-  <div style="display:grid; grid-template-columns:1fr 1.5fr; gap:56px; margin-top:32px; align-items:stretch;">
-    <!-- Left: features -->
-    <div style="display:flex; flex-direction:column; gap:18px;">
-      <div class="card" style="padding:22px 26px;">
-        <div style="display:flex; align-items:center; gap:16px; margin-bottom:14px;">
-          <div class="icon-chip"><svg width="28" height="28"><use href="#i-filter"></use></svg></div>
-          <div style="font-weight:700; font-size:26px;">Фильтры и&nbsp;сортировка</div>
-        </div>
-        <p class="txt-sm txt-muted" style="margin:0;">Индивидуальные фильтры для всех операторов и&nbsp;личные по&nbsp;свойствам диалогов.</p>
-      </div>
-      <div class="card" style="padding:18px 26px;">
-        <div style="display:flex; align-items:center; gap:16px; margin-bottom:10px;">
-          <div class="icon-chip"><svg width="28" height="28"><use href="#i-users"></use></svg></div>
-          <div style="font-weight:700; font-size:26px;">Автоназначение</div>
-        </div>
-        <p class="txt-sm txt-muted" style="margin:0;">Поток диалогов распределяется системой по&nbsp;операторам или группам.</p>
-      </div>
-      <div class="card" style="padding:18px 26px;">
-        <div style="display:flex; align-items:center; gap:16px; margin-bottom:10px;">
-          <div class="icon-chip"><svg width="28" height="28"><use href="#i-tune"></use></svg></div>
-          <div style="font-weight:700; font-size:26px;">Кастомные&nbsp;поля</div>
-        </div>
-        <p class="txt-sm txt-muted" style="margin:0;">Добавляйте любые поля — заполняемые автоматически или вручную.</p>
-      </div>
-      <div class="card card--brand" style="padding:18px 26px;">
-        <div style="display:flex; align-items:center; gap:16px; margin-bottom:10px;">
-          <div style="width:60px; height:60px; border-radius:16px; background:rgba(255,255,255,0.2); color:#fff; display:flex; align-items:center; justify-content:center;"><svg width="28" height="28"><use href="#i-spark"></use></svg></div>
-          <div style="font-weight:700; font-size:26px; color:#fff;">ИИ-инструменты</div>
-        </div>
-        <p class="txt-sm" style="margin:0; color:rgba(255,255,255,0.88);">Перефразировка, проверка ошибок и смена тона сообщения в&nbsp;один клик.</p>
-      </div>
-    </div>
-
-    <!-- Right: UI mock -->
-    <div style="background:#fff; border:1px solid rgba(14,24,33,0.08); border-radius:28px; box-shadow:0 24px 60px rgba(14,24,33,0.12); overflow:hidden; display:grid; grid-template-columns:220px 1fr;">
-      <!-- sidebar -->
-      <div style="background:var(--mia-graphite); color:#fff; padding:28px 20px; display:flex; flex-direction:column; gap:18px;">
-        <div style="font-weight:700; font-size:22px; color:#fff; letter-spacing:-0.01em;">RobotMIA</div>
-        <div style="height:1px; background:rgba(255,255,255,0.1); margin:4px 0;"></div>
-        <div style="display:flex; align-items:center; gap:12px; padding:10px 12px; background:rgba(255,255,255,0.08); border-radius:10px;"><svg width="20" height="20" style="color:#7BBDFF;"><use href="#i-chat"></use></svg><span style="font-size:17px;">Диалоги</span></div>
-        <div style="display:flex; align-items:center; gap:12px; padding:10px 12px; opacity:0.7;"><svg width="20" height="20"><use href="#i-users"></use></svg><span style="font-size:17px;">Контакты</span></div>
-        <div style="display:flex; align-items:center; gap:12px; padding:10px 12px; opacity:0.7;"><svg width="20" height="20"><use href="#i-summary"></use></svg><span style="font-size:17px;">Аудит</span></div>
-        <div style="display:flex; align-items:center; gap:12px; padding:10px 12px; opacity:0.7;"><svg width="20" height="20"><use href="#i-bolt"></use></svg><span style="font-size:17px;">Быстрые ответы</span></div>
-        <div style="display:flex; align-items:center; gap:12px; padding:10px 12px; opacity:0.7;"><svg width="20" height="20"><use href="#i-tune"></use></svg><span style="font-size:17px;">Настройки</span></div>
-      </div>
-      <!-- conversation -->
-      <div style="padding:28px; display:grid; grid-template-columns:260px 1fr; gap:20px; background:#F7F9FC;">
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <div style="background:#fff; border-radius:14px; padding:14px; box-shadow:0 2px 6px rgba(14,24,33,0.04);">
-            <div style="font-weight:700; font-size:18px;">Сергей П.</div>
-            <div style="font-size:14px; color:var(--mia-ink-300); margin-top:4px;">Хочу уточнить статус…</div>
-          </div>
-          <div style="background:var(--mia-blue); color:#fff; border-radius:14px; padding:14px;">
-            <div style="font-weight:700; font-size:18px;">Анна К.</div>
-            <div style="font-size:14px; opacity:0.85; margin-top:4px;">Добрый день, помогите…</div>
-          </div>
-          <div style="background:#fff; border-radius:14px; padding:14px; box-shadow:0 2px 6px rgba(14,24,33,0.04);">
-            <div style="font-weight:700; font-size:18px;">Игорь Д.</div>
-            <div style="font-size:14px; color:var(--mia-ink-300); margin-top:4px;">Оформлю заказ…</div>
-          </div>
-          <div style="background:#fff; border-radius:14px; padding:14px; box-shadow:0 2px 6px rgba(14,24,33,0.04);">
-            <div style="font-weight:700; font-size:18px;">Мария Н.</div>
-            <div style="font-size:14px; color:var(--mia-ink-300); margin-top:4px;">Подскажите сроки</div>
-          </div>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:14px;">
-          <!-- chat -->
-          <div style="flex:1; display:flex; flex-direction:column; gap:12px;">
-            <div style="align-self:flex-start; max-width:72%; background:#fff; padding:14px 18px; border-radius:16px 16px 16px 4px; font-size:16px; line-height:1.35; box-shadow:0 2px 6px rgba(14,24,33,0.04);">Добрый день, хотел уточнить статус заявки #A-2847</div>
-            <div style="align-self:flex-end; max-width:72%; background:var(--mia-blue); color:#fff; padding:14px 18px; border-radius:16px 16px 4px 16px; font-size:16px; line-height:1.35;">Здравствуйте! Заявка в работе, готова&nbsp;к&nbsp;отправке завтра.</div>
-            <div style="align-self:flex-start; max-width:72%; background:#fff; padding:14px 18px; border-radius:16px 16px 16px 4px; font-size:16px; line-height:1.35; box-shadow:0 2px 6px rgba(14,24,33,0.04);">Отлично, спасибо!</div>
-          </div>
-          <!-- input -->
-          <div style="background:#fff; border:1px solid rgba(14,24,33,0.12); border-radius:14px; padding:10px 14px; display:flex; align-items:center; gap:10px;">
-            <div style="font-size:14px; color:var(--mia-ink-300); flex:1;">Введите сообщение…</div>
-            <div style="display:flex; gap:6px;">
-              <div style="padding:6px 10px; background:var(--mia-blue-050); border-radius:8px; font-size:12px; color:var(--mia-blue); font-weight:600;">ИИ</div>
-              <div style="padding:6px 10px; background:var(--mia-blue); border-radius:8px; font-size:12px; color:#fff; font-weight:600;">Отправить</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="chrome-foot" style="display:none;"><span class="dot"></span><span class="sect">Интерфейс оператора</span></div>
-</section>
-
-<!-- ===================== 07 ИИ-ИНСТРУМЕНТЫ ===================== -->
-<section class="slide" data-label="08 ИИ-инструменты оператора" data-screen-label="08 08 ИИ-инструменты оператора" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="7">
-  <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
-  <div style="display:flex; flex-direction:column; gap:24px;">
+  <div style="display:flex; flex-direction:column; gap:20px;">
     <div class="eyebrow">ИИ-инструменты</div>
-    <h2 class="slide-title" style="max-width:1500px;">Оператор пишет быстрее <span class="accent">в&nbsp;один клик</span></h2>
+    <h2 class="slide-title" style="max-width:1640px;">ИИ-инструменты <span class="accent">для&nbsp;оператора</span></h2>
+    <p class="txt-lead" style="max-width:1500px; font-size:30px;">Перефразировка, смена тона, проверка ошибок и&nbsp;резюме диалога — прямо в&nbsp;окне ответа. Промпт каждой настраиваете под свой бренд-войс.</p>
   </div>
 
-  <div style="display:grid; grid-template-columns:1fr 1.1fr; gap:60px; margin-top:48px; align-items:start;">
-    <p class="txt-lead" style="max-width:720px; font-size:30px;">Вместо самостоятельной проверки — один клик: текст перефразируется, меняется тон или исправляются ошибки. Краткое резюме диалога собирается автоматически. Промпт каждой кнопки вы&nbsp;настраиваете сами.</p>
-
-    <!-- Editor mock -->
-    <div class="card" style="padding:28px;">
-      <div style="background:#fff; border:1px solid rgba(14,24,33,0.08); border-radius:14px; padding:20px; min-height:140px; font-size:20px; line-height:1.4; color:var(--mia-ink-500);">
-        Добрый день! <span style="background:var(--mia-blue-050);">Уточняю статус вашей заявки</span>&nbsp;— по&nbsp;нашим данным она уже в&nbsp;работе и&nbsp;будет готова завтра.
+  <!-- Editor mock -->
+  <div style="margin-top:42px; display:grid; grid-template-columns:1.05fr 1fr; gap:36px; align-items:stretch;">
+    <div class="card" style="padding:32px; display:flex; flex-direction:column; gap:20px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="width:38px; height:38px; border-radius:10px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center;"><svg width="20" height="20"><use href="#i-pencil"></use></svg></div>
+        <div style="font-weight:700; font-size:20px;">Окно ответа оператора</div>
       </div>
-      <div style="display:flex; gap:10px; margin-top:18px; flex-wrap:wrap;">
-        <div style="display:flex; align-items:center; gap:8px; padding:10px 16px; background:var(--mia-blue); color:#fff; border-radius:12px; font-size:18px; font-weight:600;"><svg width="20" height="20"><use href="#i-pencil"></use></svg>Перефразировать</div>
-        <div style="display:flex; align-items:center; gap:8px; padding:10px 16px; background:var(--mia-blue-050); color:var(--mia-blue); border-radius:12px; font-size:18px; font-weight:600;"><svg width="20" height="20"><use href="#i-tone"></use></svg>Сменить тон</div>
-        <div style="display:flex; align-items:center; gap:8px; padding:10px 16px; background:var(--mia-blue-050); color:var(--mia-blue); border-radius:12px; font-size:18px; font-weight:600;"><svg width="20" height="20"><use href="#i-spell"></use></svg>Орфография</div>
-        <div style="display:flex; align-items:center; gap:8px; padding:10px 16px; background:var(--mia-blue-050); color:var(--mia-blue); border-radius:12px; font-size:18px; font-weight:600;"><svg width="20" height="20"><use href="#i-summary"></use></svg>Резюме</div>
+
+      <!-- Текст с анимацией: набирается с нуля → ошибочный → исправление → корректный -->
+      <div class="ait-stage" style="background:#fff; border:1.5px solid rgba(19,96,243,0.18); border-radius:14px; padding:22px 24px; min-height:200px; font-size:21px; line-height:1.45; color:var(--mia-ink-500);">
+        <div class="ait-text-pre">
+          Добрый день! Уточняю статус вашей <span class="ait-typo">заявке</span>&nbsp;— по&nbsp;нашим <span class="ait-typo">даным</span> <span class="ait-typo">оно</span> уже в&nbsp;работе и&nbsp;будет <span class="ait-typo">готовы</span> завтра к&nbsp;18:00. Готов <span class="ait-typo">передат</span> трек-номер сразу&nbsp;же, как только посылка отправится со&nbsp;склада.<span class="ait-cursor"></span>
+        </div>
+        <div class="ait-text-post">
+          Добрый день! Уточняю статус вашей заявки&nbsp;— по&nbsp;нашим данным она&nbsp;уже в&nbsp;работе и&nbsp;будет готова завтра к&nbsp;18:00. Готов передать трек-номер сразу&nbsp;же, как только посылка отправится со&nbsp;склада.
+        </div>
+      </div>
+
+      <!-- Иконочные кнопки инструментов (без текста) -->
+      <div class="ait-tools-row">
+        <button class="ait-tool-btn" title="Перефразировать"><svg width="22" height="22"><use href="#i-pencil"></use></svg></button>
+        <button class="ait-tool-btn" title="Сменить тон"><svg width="22" height="22"><use href="#i-tone"></use></svg></button>
+        <button class="ait-tool-btn ait-tool-btn--fix" title="Исправление ошибок"><svg width="22" height="22"><use href="#i-spell"></use></svg></button>
+        <button class="ait-tool-btn" title="Резюме"><svg width="22" height="22"><use href="#i-summary"></use></svg></button>
+      </div>
+
+      <div style="margin-top:auto; padding-top:16px; border-top:1px dashed rgba(14,24,33,0.08); display:flex; align-items:center; gap:12px;">
+        <svg width="20" height="20" style="color:var(--mia-blue);"><use href="#i-clock"></use></svg>
+        <div class="txt-sm txt-muted" style="font-size:17px;">Среднее время ответа сокращается на&nbsp;<b style="color:var(--mia-graphite);">35–45%</b> в&nbsp;первый месяц использования.</div>
+      </div>
+    </div>
+
+    <!-- Right: 4 capability cards -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+      <div class="card card--sky" style="padding:26px 26px; display:flex; flex-direction:column; gap:14px;">
+        <div class="icon-chip brand" style="width:50px; height:50px;"><svg width="22" height="22"><use href="#i-pencil"></use></svg></div>
+        <div style="font-weight:700; font-size:24px; line-height:1.18;">Перефразировка</div>
+        <p class="txt-sm txt-muted" style="margin:0; font-size:18px; line-height:1.4;">Готовый вариант ответа за&nbsp;долю секунды. Снимает «синдром белого листа».</p>
+      </div>
+      <div class="card card--sky" style="padding:26px 26px; display:flex; flex-direction:column; gap:14px;">
+        <div class="icon-chip brand" style="width:50px; height:50px;"><svg width="22" height="22"><use href="#i-tone"></use></svg></div>
+        <div style="font-weight:700; font-size:24px; line-height:1.18;">Смена тона</div>
+        <p class="txt-sm txt-muted" style="margin:0; font-size:18px; line-height:1.4;">Делает ответ мягче, официальнее или дружелюбнее — без потери смысла.</p>
+      </div>
+      <div class="card card--sky" style="padding:26px 26px; display:flex; flex-direction:column; gap:14px;">
+        <div class="icon-chip brand" style="width:50px; height:50px;"><svg width="22" height="22"><use href="#i-spell"></use></svg></div>
+        <div style="font-weight:700; font-size:24px; line-height:1.18;">Проверка ошибок</div>
+        <p class="txt-sm txt-muted" style="margin:0; font-size:18px; line-height:1.4;">Орфография и&nbsp;грамматика в&nbsp;реальном времени, до&nbsp;отправки клиенту.</p>
+      </div>
+      <div class="card card--sky" style="padding:26px 26px; display:flex; flex-direction:column; gap:14px;">
+        <div class="icon-chip brand" style="width:50px; height:50px;"><svg width="22" height="22"><use href="#i-summary"></use></svg></div>
+        <div style="font-weight:700; font-size:24px; line-height:1.18;">Резюме диалога</div>
+        <p class="txt-sm txt-muted" style="margin:0; font-size:18px; line-height:1.4;">Краткое описание для&nbsp;CRM, передачи смены и&nbsp;аудита — одной кнопкой.</p>
       </div>
     </div>
   </div>
 
-  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; margin-top:24px;">
-    <div class="card card--sky" style="padding:20px 22px;">
-      <div class="icon-chip brand" style="margin-bottom:14px; width:48px; height:48px;"><svg width="22" height="22"><use href="#i-pencil"></use></svg></div>
-      <div style="font-weight:700; font-size:22px; margin-bottom:6px;">Перефразировка</div>
-      <p class="txt-sm txt-muted" style="margin:0; font-size:18px;">Готовый вариант ответа за&nbsp;долю секунды.</p>
-    </div>
-    <div class="card card--sky" style="padding:20px 22px;">
-      <div class="icon-chip brand" style="margin-bottom:14px; width:48px; height:48px;"><svg width="22" height="22"><use href="#i-tone"></use></svg></div>
-      <div style="font-weight:700; font-size:22px; margin-bottom:6px;">Изменение тона</div>
-      <p class="txt-sm txt-muted" style="margin:0; font-size:18px;">Делает ответ мягче, официальнее или дружелюбнее.</p>
-    </div>
-    <div class="card card--sky" style="padding:20px 22px;">
-      <div class="icon-chip brand" style="margin-bottom:14px; width:48px; height:48px;"><svg width="22" height="22"><use href="#i-spell"></use></svg></div>
-      <div style="font-weight:700; font-size:22px; margin-bottom:6px;">Проверка ошибок</div>
-      <p class="txt-sm txt-muted" style="margin:0; font-size:18px;">Находит и исправляет опечатки в&nbsp;реальном времени.</p>
-    </div>
-    <div class="card card--sky" style="padding:20px 22px;">
-      <div class="icon-chip brand" style="margin-bottom:14px; width:48px; height:48px;"><svg width="22" height="22"><use href="#i-summary"></use></svg></div>
-      <div style="font-weight:700; font-size:22px; margin-bottom:6px;">Резюме диалога</div>
-      <p class="txt-sm txt-muted" style="margin:0; font-size:18px;">Краткое описание по диалогу одной кнопкой.</p>
-    </div>
+  <div style="margin-top:36px; padding:22px 32px; background:var(--mia-blue-050); border-radius:16px; display:flex; align-items:center; gap:20px;">
+    <svg width="24" height="24" style="color:var(--mia-blue); flex-shrink:0;"><use href="#i-tune"></use></svg>
+    <div style="font-size:20px; color:var(--mia-graphite);"><b>Промпт каждого инструмента настраивается&nbsp;вами&nbsp;</b>— один раз внедряете тон бренда, и&nbsp;все операторы пишут единым голосом.</div>
   </div>
-
-  <div class="chrome-foot" style="display:none;"><span class="dot"></span><span class="sect">ИИ-инструменты</span></div>
 </section>
+<!-- ===================== 08 ИИ-АТРИБУТЫ (с анимацией парсинга) ===================== -->
+<style>
+  /* Цикл 12с: каждое значение по очереди подсвечивается в сообщении и переливается в инпут */
+  @keyframes attr-msg-phone {
+    0%, 6%   { background: var(--mia-blue-050); color: var(--mia-blue); }
+    8%, 18%  { background: var(--mia-blue); color: #fff; box-shadow: 0 0 0 4px rgba(19,96,243,0.20); }
+    22%, 100%{ background: var(--mia-blue-050); color: var(--mia-blue); }
+  }
+  @keyframes attr-msg-email {
+    0%, 26%  { background: var(--mia-blue-050); color: var(--mia-blue); }
+    28%, 38% { background: var(--mia-blue); color: #fff; box-shadow: 0 0 0 4px rgba(19,96,243,0.20); }
+    42%, 100%{ background: var(--mia-blue-050); color: var(--mia-blue); }
+  }
+  @keyframes attr-msg-req {
+    0%, 46%  { background: var(--mia-blue-050); color: var(--mia-blue); }
+    48%, 58% { background: var(--mia-blue); color: #fff; box-shadow: 0 0 0 4px rgba(19,96,243,0.20); }
+    62%, 100%{ background: var(--mia-blue-050); color: var(--mia-blue); }
+  }
 
-<!-- ===================== 08 ИИ-АТРИБУТЫ ===================== -->
-<section class="slide" data-label="09 ИИ-атрибуты" data-screen-label="09 09 ИИ-атрибуты" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="8">
+  /* Поля заполняются после подсветки */
+  @keyframes attr-fill-phone {
+    0%, 16%  { opacity: 0; transform: translateY(-6px); }
+    22%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+  @keyframes attr-fill-email {
+    0%, 36%  { opacity: 0; transform: translateY(-6px); }
+    42%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+  @keyframes attr-fill-req {
+    0%, 56%  { opacity: 0; transform: translateY(-6px); }
+    62%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+
+  /* Контур инпута пульсирует в момент заполнения */
+  @keyframes attr-input-phone {
+    0%, 14%  { border-color: rgba(19,96,243,0.18); background: #fff; }
+    18%, 24% { border-color: var(--mia-blue); background: #EAF1FF; box-shadow: 0 0 0 4px rgba(19,96,243,0.18); }
+    28%, 100%{ border-color: var(--mia-blue-200); background: #fff; box-shadow: none; }
+  }
+  @keyframes attr-input-email {
+    0%, 34%  { border-color: rgba(19,96,243,0.18); background: #fff; }
+    38%, 44% { border-color: var(--mia-blue); background: #EAF1FF; box-shadow: 0 0 0 4px rgba(19,96,243,0.18); }
+    48%, 100%{ border-color: var(--mia-blue-200); background: #fff; box-shadow: none; }
+  }
+  @keyframes attr-input-req {
+    0%, 54%  { border-color: rgba(19,96,243,0.18); background: #fff; }
+    58%, 64% { border-color: var(--mia-blue); background: #EAF1FF; box-shadow: 0 0 0 4px rgba(19,96,243,0.18); }
+    68%, 100%{ border-color: var(--mia-blue-200); background: #fff; box-shadow: none; }
+  }
+
+  /* Чек-листы и резюме появляются параллельно с заполнением полей */
+  @keyframes attr-card-quality {
+    0%, 18%  { opacity: 0; transform: translateY(8px); }
+    24%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+  @keyframes attr-card-analysis {
+    0%, 38%  { opacity: 0; transform: translateY(8px); }
+    44%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+  @keyframes attr-card-summary {
+    0%, 58%  { opacity: 0; transform: translateY(8px); }
+    66%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+
+  .attr-msg-phone { padding: 2px 6px; border-radius: 5px; font-weight: 600; transition: none; animation: attr-msg-phone 12s ease-in-out infinite; }
+  .attr-msg-email { padding: 2px 6px; border-radius: 5px; font-weight: 600; transition: none; animation: attr-msg-email 12s ease-in-out infinite; }
+  .attr-msg-req   { padding: 2px 6px; border-radius: 5px; font-weight: 600; transition: none; animation: attr-msg-req   12s ease-in-out infinite; }
+
+  .attr-input-phone { animation: attr-input-phone 12s ease-in-out infinite; }
+  .attr-input-email { animation: attr-input-email 12s ease-in-out infinite; }
+  .attr-input-req   { animation: attr-input-req   12s ease-in-out infinite; }
+
+  .attr-fill-phone .attr-fill-text { animation: attr-fill-phone 12s ease-in-out infinite; display: inline-block; }
+  .attr-fill-email .attr-fill-text { animation: attr-fill-email 12s ease-in-out infinite; display: inline-block; }
+  .attr-fill-req   .attr-fill-text { animation: attr-fill-req   12s ease-in-out infinite; display: inline-block; }
+
+  .attr-card-quality  { animation: attr-card-quality  12s ease-in-out infinite; }
+  .attr-card-analysis { animation: attr-card-analysis 12s ease-in-out infinite; }
+  .attr-card-summary  { animation: attr-card-summary  12s ease-in-out infinite; }
+</style>
+
+<section class="slide" data-label="07 ИИ-атрибуты" data-screen-label="07 07 ИИ-атрибуты" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="6">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
-  <div style="display:flex; flex-direction:column; gap:24px;">
+  <div style="display:flex; flex-direction:column; gap:20px;">
     <div class="eyebrow">ИИ-атрибуты</div>
-    <h2 class="slide-title" style="max-width:1600px;">Автоматическое извлечение данных и&nbsp;<span class="accent">оценка диалога</span></h2>
-    <p class="txt-lead" style="max-width:1400px;">Оператору больше не нужно выбирать категорию, заполнять поля и&nbsp;писать резюме — ИИ делает это автоматически.</p>
+    <h2 class="slide-title" style="max-width:1700px;">ИИ-атрибуты для&nbsp;<span class="accent">автоматического извлечения данных</span> из&nbsp;диалога и&nbsp;его оценки</h2>
+    <p class="txt-lead" style="max-width:1500px; font-size:26px;">Оператору больше не&nbsp;нужно выбирать категорию, заполнять поля и&nbsp;писать резюме — ИИ делает это автоматически.</p>
   </div>
 
   <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:36px;">
@@ -573,24 +578,30 @@
     <div style="display:flex; flex-direction:column; gap:20px;">
       <div>
         <div class="txt-sm" style="color:var(--mia-blue); font-weight:700; margin-bottom:10px;">Сообщение клиента</div>
-        <div style="background:#fff; border:1.5px solid var(--mia-blue-200); border-radius:16px; padding:18px 22px; font-size:20px; line-height:1.4; color:var(--mia-ink-500);">
-          Добрый день! Меня зовут Сергей Петров. Мой номер <span style="color:var(--mia-blue); font-weight:600;">+7&nbsp;(916)&nbsp;555-12-34</span>, почта&nbsp;— <span style="color:var(--mia-blue); font-weight:600;">s.petrov@mail.ru</span>. Номер заявки <span style="color:var(--mia-blue); font-weight:600;">#A-2847</span>. Хотел бы уточнить статус.
+        <div style="background:#fff; border:1.5px solid var(--mia-blue-200); border-radius:16px; padding:18px 22px; font-size:20px; line-height:1.55; color:var(--mia-ink-500);">
+          Добрый день! Меня зовут Сергей Петров. Мой номер <span class="attr-msg-phone">+7&nbsp;(916)&nbsp;555-12-34</span>, почта&nbsp;— <span class="attr-msg-email">s.petrov@mail.ru</span>. Номер заявки <span class="attr-msg-req">#A-2847</span>. Хотел бы уточнить статус.
         </div>
       </div>
       <div>
         <div class="txt-sm" style="color:var(--mia-ink-500); font-weight:700; margin-bottom:10px;">Автозаполнение полей</div>
         <div style="display:flex; flex-direction:column; gap:10px;">
-          <div>
+          <div class="attr-fill-phone">
             <div style="font-size:13px; font-weight:700; color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:4px;">Телефон</div>
-            <div style="background:#fff; border:1px solid var(--mia-blue-200); border-radius:10px; padding:10px 14px; font-size:19px; color:var(--mia-blue); font-weight:600;">+7 (916) 555-12-34</div>
+            <div class="attr-input-phone" style="border:1px solid var(--mia-blue-200); border-radius:10px; padding:10px 14px; font-size:19px; color:var(--mia-blue); font-weight:600; min-height:24px;">
+              <span class="attr-fill-text">+7 (916) 555-12-34</span>
+            </div>
           </div>
-          <div>
+          <div class="attr-fill-email">
             <div style="font-size:13px; font-weight:700; color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:4px;">Email</div>
-            <div style="background:#fff; border:1px solid var(--mia-blue-200); border-radius:10px; padding:10px 14px; font-size:19px; color:var(--mia-blue); font-weight:600;">s.petrov@mail.ru</div>
+            <div class="attr-input-email" style="border:1px solid var(--mia-blue-200); border-radius:10px; padding:10px 14px; font-size:19px; color:var(--mia-blue); font-weight:600; min-height:24px;">
+              <span class="attr-fill-text">s.petrov@mail.ru</span>
+            </div>
           </div>
-          <div>
+          <div class="attr-fill-req">
             <div style="font-size:13px; font-weight:700; color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:4px;">Номер заявки</div>
-            <div style="background:#fff; border:1px solid var(--mia-blue-200); border-radius:10px; padding:10px 14px; font-size:19px; color:var(--mia-blue); font-weight:600;">#A-2847</div>
+            <div class="attr-input-req" style="border:1px solid var(--mia-blue-200); border-radius:10px; padding:10px 14px; font-size:19px; color:var(--mia-blue); font-weight:600; min-height:24px;">
+              <span class="attr-fill-text">#A-2847</span>
+            </div>
           </div>
         </div>
       </div>
@@ -600,7 +611,7 @@
     <div>
       <div class="txt-sm" style="color:var(--mia-ink-500); font-weight:700; margin-bottom:10px;">ИИ-чек-листы</div>
       <div style="display:flex; flex-direction:column; gap:12px;">
-        <div class="card" style="padding:16px 22px;">
+        <div class="card attr-card-quality" style="padding:16px 22px;">
           <div style="font-weight:700; font-size:20px; margin-bottom:8px;">Качество работы оператора</div>
           <div style="display:flex; flex-direction:column; gap:6px;">
             <div style="display:flex; align-items:center; gap:10px; font-size:18px;"><span style="width:22px; height:22px; border-radius:6px; background:var(--mia-success); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="14" height="14"><use href="#i-check"></use></svg></span>Оператор отработал по&nbsp;скрипту</div>
@@ -608,14 +619,14 @@
             <div style="display:flex; align-items:center; gap:10px; font-size:18px;"><span style="width:22px; height:22px; border-radius:6px; background:var(--mia-success); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="14" height="14"><use href="#i-check"></use></svg></span>Запрещённые фразы не использованы</div>
           </div>
         </div>
-        <div class="card" style="padding:16px 22px;">
+        <div class="card attr-card-analysis" style="padding:16px 22px;">
           <div style="font-weight:700; font-size:20px; margin-bottom:8px;">Анализ диалога</div>
           <div style="display:flex; flex-direction:column; gap:6px;">
             <div style="display:flex; align-items:center; gap:10px; font-size:18px;"><span style="width:22px; height:22px; border-radius:6px; background:var(--mia-success); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="14" height="14"><use href="#i-check"></use></svg></span>Негатив от клиента: нет</div>
             <div style="display:flex; align-items:center; gap:10px; font-size:18px;"><span style="width:22px; height:22px; border-radius:6px; background:var(--mia-success); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="14" height="14"><use href="#i-check"></use></svg></span>Категория: уточнение статуса заявки</div>
           </div>
         </div>
-        <div class="card card--sky" style="padding:16px 22px;">
+        <div class="card card--sky attr-card-summary" style="padding:16px 22px;">
           <div style="font-weight:700; font-size:20px; margin-bottom:6px; color:var(--mia-graphite);">Резюме диалога</div>
           <div style="font-size:18px; line-height:1.4; color:var(--mia-blue); font-weight:500;">Клиент Сергей Петров обратился для уточнения статуса заявки&nbsp;#A-2847. Контакты подтверждены.</div>
         </div>
@@ -625,13 +636,12 @@
 
   <div class="chrome-foot" style="display:none;"><span class="dot"></span><span class="sect">ИИ-атрибуты</span></div>
 </section>
-
 <!-- ===================== 09 ИИ-СУФЛЁР ===================== -->
-<section class="slide" data-label="10 ИИ-суфлёр на базе знаний" data-screen-label="10 10 ИИ-суфлёр на базе знаний" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="9">
+<section class="slide" data-label="08 ИИ-суфлёр на базе знаний" data-screen-label="08 08 ИИ-суфлёр на базе знаний" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="7">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
   <div style="display:flex; flex-direction:column; gap:24px;">
     <div class="eyebrow">ИИ-суфлёр</div>
-    <h2 class="slide-title" style="max-width:1500px;">ИИ подсказывает ответ из&nbsp;<span class="accent">вашей базы знаний</span></h2>
+    <h2 class="slide-title" style="max-width:1640px;">ИИ-суфлёр подсказывает ответы <span class="accent">на&nbsp;основе вашей базы знаний</span></h2>
     <p class="txt-lead" style="max-width:1400px;">Администратор задаёт промпт и загружает документы — ИИ в режиме реального времени анализирует диалог и&nbsp;предлагает оператору ответ.</p>
   </div>
 
@@ -651,9 +661,13 @@
         <div style="font-size:22px; line-height:1.4; color:var(--mia-graphite);">Подключение к чат-платформе RobotMIA производится с помощью формы&nbsp;«Оставить заявку» на&nbsp;robotmia.ru</div>
         <div style="font-size:16px; color:var(--mia-ink-300); margin-top:14px;">Источник: база знаний · knowledge.docx · стр.&nbsp;12</div>
       </div>
-      <div style="display:flex; gap:12px; margin-top:20px;">
-        <div style="padding:12px 20px; background:var(--mia-blue); color:#fff; border-radius:10px; font-size:18px; font-weight:600;">Вставить</div>
-        <div style="padding:12px 20px; background:transparent; color:var(--mia-ink-500); border:1px solid rgba(14,24,33,0.12); border-radius:10px; font-size:18px; font-weight:500;">Перегенерировать</div>
+      <div style="display:flex; gap:10px; margin-top:20px;">
+        <button title="Вставить ответ в&nbsp;поле" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; padding:0; background:var(--mia-blue); color:#fff; border:none; border-radius:10px; cursor:pointer;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 10 4 15 9 20"></polyline><path d="M20 4v7a4 4 0 0 1-4 4H4"></path></svg>
+        </button>
+        <button title="Перегенерировать" style="display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; padding:0; background:transparent; color:var(--mia-ink-500); border:1px solid rgba(14,24,33,0.12); border-radius:10px; cursor:pointer;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.36-6.36L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-15.36 6.36L3 16"></path><path d="M3 21v-5h5"></path></svg>
+        </button>
       </div>
     </div>
 
@@ -663,7 +677,7 @@
         <div style="width:52px; height:52px; border-radius:14px; background:var(--mia-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:24px; flex-shrink:0;">1</div>
         <div>
           <div style="font-weight:700; font-size:26px; margin-bottom:6px;">Настройка суфлёра</div>
-          <p class="txt-sm txt-muted" style="margin:0;">Администратор задаёт промпт и подгружает базу знаний (doc&nbsp;/ docx).</p>
+          <p class="txt-sm txt-muted" style="margin:0;">Администратор задаёт промпт и&nbsp;загружает базу знаний&nbsp;— или мы&nbsp;интегрируемся с&nbsp;вашей действующей базой знаний.</p>
         </div>
       </div>
       <div style="display:flex; gap:20px; align-items:flex-start;">
@@ -686,132 +700,122 @@
   <div class="chrome-foot"><span class="dot"></span><span class="sect">ИИ-суфлёр</span></div>
 </section>
 
-<!-- ===================== 10 ЭКОНОМИЯ С СУФЛЁРОМ ===================== -->
-<section class="slide" data-label="11 Экономия с ИИ-суфлёром" data-screen-label="11 11 Экономия с ИИ-суфлёром" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="10">
+<!-- ===================== 10 ЭКОНОМИЯ С СУФЛЁРОМ (без анимаций) ===================== -->
+<section class="slide" data-label="09 Экономия с ИИ-суфлёром" data-screen-label="09 09 Экономия с ИИ-суфлёром" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
-  <div style="display:flex; flex-direction:column; gap:24px;">
-    <div class="eyebrow">Эффект</div>
-    <h2 class="slide-title" style="max-width:1500px;">−1&nbsp;600&nbsp;часов в&nbsp;месяц <span class="accent">или&nbsp;10&nbsp;штатных операторов</span></h2>
-    <p class="txt-lead" style="max-width:1400px;">Расчёт для контактного центра на&nbsp;38&nbsp;000 обращений в&nbsp;месяц.</p>
+
+  <div style="display:flex; flex-direction:column; gap:20px;">
+    <div class="eyebrow">Реальный кейс</div>
+    <h2 class="slide-title" style="max-width:1640px;">−1&nbsp;600&nbsp;часов в&nbsp;месяц <span class="accent">или 10&nbsp;штатных операторов</span></h2>
+    <p class="txt-lead" style="max-width:1500px; font-size:30px;">Расчёт для контактного центра на&nbsp;38&nbsp;000 обращений в&nbsp;месяц. ИИ-суфлёр и&nbsp;другие ИИ-инструменты дают оператору готовый ответ&nbsp;— оператор подтверждает или&nbsp;дорабатывает.</p>
   </div>
 
-  <div style="display:grid; grid-template-columns:1.1fr 56px 1.1fr 56px 1.1fr 56px 1.4fr; gap:12px; margin-top:40px; align-items:center;">
-    <div class="card" style="padding:24px 18px; text-align:center;">
-      <div style="font-family:var(--font-display); font-weight:900; font-size:48px; line-height:1; color:var(--mia-graphite); white-space:nowrap;">38 000</div>
-      <div class="txt-sm txt-muted" style="margin-top:10px; font-size:18px;">обращений/мес</div>
+  <!-- Воронка: 38 000 → 12 920 → 129 200 → ~1 600 ч -->
+  <div style="display:grid; grid-template-columns:1.1fr 70px 1.1fr 70px 1.1fr 70px 1.5fr; gap:10px; margin-top:54px; align-items:center;">
+    <div class="card" style="padding:30px 22px; text-align:center;">
+      <div style="font-family:var(--font-display); font-weight:900; font-size:56px; line-height:1; color:var(--mia-graphite); white-space:nowrap; letter-spacing:-0.02em;">38&nbsp;000</div>
+      <div class="txt-sm txt-muted" style="margin-top:10px; font-size:18px;">обращений&nbsp;/&nbsp;мес</div>
     </div>
-    <div style="text-align:center; color:var(--mia-blue); font-weight:700; font-size:14px;">
-      <svg width="28" height="28"><use href="#i-arrow"></use></svg>
-      <div>34%</div>
+    <div style="text-align:center; color:var(--mia-blue); font-weight:700;">
+      <svg width="32" height="32"><use href="#i-arrow"></use></svg>
+      <div style="font-size:14px; margin-top:4px;">34%</div>
     </div>
-    <div class="card" style="padding:24px 18px; text-align:center;">
-      <div style="font-family:var(--font-display); font-weight:900; font-size:48px; line-height:1; color:var(--mia-graphite); white-space:nowrap;">12 920</div>
+    <div class="card" style="padding:30px 22px; text-align:center;">
+      <div style="font-family:var(--font-display); font-weight:900; font-size:56px; line-height:1; color:var(--mia-graphite); white-space:nowrap; letter-spacing:-0.02em;">12&nbsp;920</div>
       <div class="txt-sm txt-muted" style="margin-top:10px; font-size:18px;">диалогов на&nbsp;операторов</div>
     </div>
-    <div style="text-align:center; color:var(--mia-blue); font-weight:700; font-size:14px;">
-      <svg width="28" height="28"><use href="#i-arrow"></use></svg>
-      <div>×10 сообщ.</div>
+    <div style="text-align:center; color:var(--mia-blue); font-weight:700;">
+      <svg width="32" height="32"><use href="#i-arrow"></use></svg>
+      <div style="font-size:14px; margin-top:4px;">×10&nbsp;сообщ.</div>
     </div>
-    <div class="card" style="padding:24px 18px; text-align:center;">
-      <div style="font-family:var(--font-display); font-weight:900; font-size:48px; line-height:1; color:var(--mia-graphite); white-space:nowrap;">129 200</div>
-      <div class="txt-sm txt-muted" style="margin-top:10px; font-size:18px;">сообщений/мес</div>
+    <div class="card" style="padding:30px 22px; text-align:center;">
+      <div style="font-family:var(--font-display); font-weight:900; font-size:56px; line-height:1; color:var(--mia-graphite); white-space:nowrap; letter-spacing:-0.02em;">129&nbsp;200</div>
+      <div class="txt-sm txt-muted" style="margin-top:10px; font-size:18px;">сообщений&nbsp;/&nbsp;мес</div>
     </div>
-    <div style="text-align:center; color:var(--mia-blue); font-weight:700; font-size:14px;">
-      <svg width="28" height="28"><use href="#i-arrow"></use></svg>
-      <div>ИИ: 50%</div>
+    <div style="text-align:center; color:var(--mia-blue); font-weight:700;">
+      <svg width="32" height="32"><use href="#i-arrow"></use></svg>
+      <div style="font-size:14px; margin-top:4px;">ИИ-суфлёр</div>
     </div>
-    <div class="card card--brand" style="padding:28px 22px; text-align:center;">
-      <div style="font-family:var(--font-display); font-weight:900; font-size:60px; line-height:1; color:#fff; white-space:nowrap;">~1 600</div>
-      <div style="font-family:var(--font-text); font-size:18px; color:rgba(255,255,255,0.9); margin-top:8px;">часов/мес экономии</div>
-      <div style="height:1px; background:rgba(255,255,255,0.2); margin:14px 0;"></div>
-      <div style="font-weight:700; font-size:20px; color:#fff;">= 10 штатных операторов</div>
-    </div>
-  </div>
-
-  <!-- Note strip -->
-  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; margin-top:48px;">
-    <div class="card card--sky" style="padding:28px;">
-      <div style="font-size:22px; font-weight:700; color:var(--mia-blue); margin-bottom:10px;">34%</div>
-      <p class="txt-sm txt-muted" style="margin:0;">обращений направляются на&nbsp;операторов (66% закрывает робот)</p>
-    </div>
-    <div class="card card--sky" style="padding:28px;">
-      <div style="font-size:22px; font-weight:700; color:var(--mia-blue); margin-bottom:10px;">~1,5&nbsp;мин</div>
-      <p class="txt-sm txt-muted" style="margin:0;">среднее время обработки одного сообщения оператором</p>
-    </div>
-    <div class="card card--sky" style="padding:28px;">
-      <div style="font-size:22px; font-weight:700; color:var(--mia-blue); margin-bottom:10px;">50%</div>
-      <p class="txt-sm txt-muted" style="margin:0;">сообщений обрабатывает ИИ-суфлёр без участия оператора</p>
+    <div class="card card--brand" style="padding:32px 26px; text-align:center;">
+      <div style="font-family:var(--font-display); font-weight:900; font-size:68px; line-height:1; color:#fff; white-space:nowrap; letter-spacing:-0.02em;">~1&nbsp;600</div>
+      <div style="font-family:var(--font-text); font-size:18px; color:rgba(255,255,255,0.9); margin-top:6px;">часов&nbsp;/&nbsp;мес экономии</div>
+      <div style="height:1px; background:rgba(255,255,255,0.22); margin:14px 0;"></div>
+      <div style="font-weight:700; font-size:22px; color:#fff;">= 10 штатных операторов</div>
     </div>
   </div>
 
-  <div class="chrome-foot" style="display:none;"><span class="dot"></span><span class="sect">Экономия</span></div>
+  <!-- Параметры расчёта -->
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:22px; margin-top:54px;">
+    <div class="card card--sky" style="padding:28px 30px;">
+      <div style="font-family:var(--font-display); font-size:38px; font-weight:900; color:var(--mia-blue); margin-bottom:8px; letter-spacing:-0.02em;">34%</div>
+      <p class="txt-sm" style="margin:0; color:var(--mia-ink-500); font-size:19px;">обращений уходят на&nbsp;операторов&nbsp;— остальные&nbsp;66% закрывает робот.</p>
+    </div>
+    <div class="card card--sky" style="padding:28px 30px;">
+      <div style="font-family:var(--font-display); font-size:38px; font-weight:900; color:var(--mia-blue); margin-bottom:8px; letter-spacing:-0.02em;">~1,5&nbsp;мин</div>
+      <p class="txt-sm" style="margin:0; color:var(--mia-ink-500); font-size:19px;">среднее время написания одного сообщения оператором без&nbsp;ИИ.</p>
+    </div>
+    <div class="card card--sky" style="padding:28px 30px;">
+      <div style="font-family:var(--font-display); font-size:38px; font-weight:900; color:var(--mia-blue); margin-bottom:8px; letter-spacing:-0.02em;">50%</div>
+      <p class="txt-sm" style="margin:0; color:var(--mia-ink-500); font-size:19px;">времени на&nbsp;написание сообщения экономит ИИ-суфлёр&nbsp;— оператор только подтверждает или&nbsp;дорабатывает ответ.</p>
+    </div>
+  </div>
 </section>
-
 <!-- ===================== 11 АУДИТ ===================== -->
-<section class="slide" data-label="12 Раздел Аудит" data-screen-label="12 12 Раздел Аудит" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="11">
+<section class="slide" data-label="10 Раздел Аудит" data-screen-label="10 10 Раздел Аудит" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="9">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
-  <div style="display:flex; flex-direction:column; gap:24px;">
+
+  <div style="display:flex; flex-direction:column; gap:18px;">
     <div class="eyebrow">Аналитика</div>
     <h2 class="slide-title" style="max-width:1500px;">Раздел&nbsp;«Аудит» — для&nbsp;<span class="accent">супервайзера и&nbsp;менеджера</span></h2>
   </div>
 
-  <div style="display:grid; grid-template-columns:1fr 1.2fr; gap:64px; margin-top:64px; align-items:start;">
-    <!-- Left: 3 features -->
-    <div style="display:flex; flex-direction:column; gap:28px;">
-      <div class="card" style="padding:30px 34px;">
-        <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
-          <div class="icon-chip"><svg width="28" height="28"><use href="#i-filter"></use></svg></div>
-          <div style="font-weight:700; font-size:28px;">Удобные фильтры</div>
+  <div style="display:grid; grid-template-columns:380px 1248px; gap:40px; margin-top:32px; align-items:start;">
+
+    <!-- Легенда: 4 описания -->
+    <div style="display:flex; flex-direction:column; gap:14px;">
+      <div class="hotspot-caption hotspot-legend-item" style="opacity:1;">
+        <div class="hotspot-legend-num">1</div>
+        <div>
+          <div class="hotspot-legend-title">Удобные фильтры</div>
+          <div class="hotspot-legend-desc">По&nbsp;дате, каналу, категории, оператору и&nbsp;любым атрибутам — для поиска нужных диалогов.</div>
         </div>
-        <p class="txt-sm txt-muted" style="margin:0;">Настраивайте фильтры для поиска конкретных диалогов по&nbsp;свойствам, дате, категории.</p>
       </div>
-      <div class="card" style="padding:30px 34px;">
-        <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
-          <div class="icon-chip"><svg width="28" height="28"><use href="#i-summary"></use></svg></div>
-          <div style="font-weight:700; font-size:28px;">Общая сумма диалогов</div>
+      <div class="hotspot-caption hotspot-legend-item" style="opacity:1;">
+        <div class="hotspot-legend-num">2</div>
+        <div>
+          <div class="hotspot-legend-title">Поиск по&nbsp;содержанию</div>
+          <div class="hotspot-legend-desc">Полнотекстовый поиск по&nbsp;сообщениям внутри&nbsp;всех диалогов&nbsp;— найти нужный момент за&nbsp;секунды.</div>
         </div>
-        <p class="txt-sm txt-muted" style="margin:0;">Итоговое количество диалогов по выбранным фильтрам выводится автоматически.</p>
       </div>
-      <div class="card card--brand" style="padding:30px 34px;">
-        <div style="display:flex; align-items:center; gap:16px; margin-bottom:12px;">
-          <div style="width:60px; height:60px; border-radius:16px; background:rgba(255,255,255,0.2); color:#fff; display:flex; align-items:center; justify-content:center;"><svg width="28" height="28"><use href="#i-download"></use></svg></div>
-          <div style="font-weight:700; font-size:28px; color:#fff;">Скачивание диалогов</div>
+      <div class="hotspot-caption hotspot-legend-item" style="opacity:1;">
+        <div class="hotspot-legend-num">3</div>
+        <div>
+          <div class="hotspot-legend-title">Детализация диалога</div>
+          <div class="hotspot-legend-desc">Открывайте любой диалог из&nbsp;списка целиком&nbsp;— вся переписка, атрибуты, метки и&nbsp;участники.</div>
         </div>
-        <p class="txt-sm" style="margin:0; color:rgba(255,255,255,0.9);">Каждый диалог отдельно или все сразу — в&nbsp;формате&nbsp;.docx.</p>
+      </div>
+      <div class="hotspot-caption hotspot-legend-item" style="opacity:1;">
+        <div class="hotspot-legend-num">4</div>
+        <div>
+          <div class="hotspot-legend-title">Экспорт</div>
+          <div class="hotspot-legend-desc">Сводная таблица в&nbsp;<strong>Excel</strong>, а&nbsp;все диалоги можно выгрузить в&nbsp;формате <strong>.docx</strong>.</div>
+        </div>
       </div>
     </div>
 
-    <!-- Right: mock table -->
-    <div style="background:#fff; border:1px solid rgba(14,24,33,0.08); border-radius:20px; box-shadow:0 24px 60px rgba(14,24,33,0.1); padding:32px;">
-      <div style="display:flex; align-items:center; gap:14px; margin-bottom:22px;">
-        <div style="padding:10px 18px; background:var(--mia-blue-050); color:var(--mia-blue); border-radius:10px; font-size:18px; font-weight:600;">Дата: 01.05 — 31.05</div>
-        <div style="padding:10px 18px; background:var(--mia-blue-050); color:var(--mia-blue); border-radius:10px; font-size:18px; font-weight:600;">Канал: все</div>
-        <div style="padding:10px 18px; background:var(--mia-blue-050); color:var(--mia-blue); border-radius:10px; font-size:18px; font-weight:600;">+ ещё 3</div>
-        <div style="margin-left:auto; padding:10px 18px; background:var(--mia-blue); color:#fff; border-radius:10px; font-size:18px; font-weight:600;">Скачать</div>
-      </div>
-      <div style="background:var(--mia-blue-050); border-radius:14px; padding:20px 24px; margin-bottom:18px;">
-        <div style="display:flex; align-items:baseline; justify-content:space-between;">
-          <div class="txt-sm" style="color:var(--mia-ink-500); font-weight:600;">Найдено диалогов</div>
-          <div style="font-family:var(--font-display); font-weight:900; font-size:56px; color:var(--mia-blue); line-height:1;">12 847</div>
-        </div>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:2px;">
-        <div style="display:grid; grid-template-columns:2.2fr 1fr 1.2fr 0.8fr; gap:20px; padding:14px 16px; font-size:16px; font-weight:700; color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.1em; border-bottom:1px solid rgba(14,24,33,0.1);">
-          <div>Клиент</div><div>Канал</div><div>Категория</div><div>Время</div>
-        </div>
-        <div style="display:grid; grid-template-columns:2.2fr 1fr 1.2fr 0.8fr; gap:20px; padding:18px 16px; font-size:20px; border-bottom:1px solid rgba(14,24,33,0.06);"><div style="font-weight:600;">Сергей&nbsp;Петров</div><div>Telegram</div><div>Статус заявки</div><div class="txt-muted">04:12</div></div>
-        <div style="display:grid; grid-template-columns:2.2fr 1fr 1.2fr 0.8fr; gap:20px; padding:18px 16px; font-size:20px; border-bottom:1px solid rgba(14,24,33,0.06);"><div style="font-weight:600;">Анна Козлова</div><div>WhatsApp</div><div>Возврат</div><div class="txt-muted">06:05</div></div>
-        <div style="display:grid; grid-template-columns:2.2fr 1fr 1.2fr 0.8fr; gap:20px; padding:18px 16px; font-size:20px; border-bottom:1px solid rgba(14,24,33,0.06);"><div style="font-weight:600;">Игорь Дроздов</div><div>MAX</div><div>Подключение</div><div class="txt-muted">02:48</div></div>
-        <div style="display:grid; grid-template-columns:2.2fr 1fr 1.2fr 0.8fr; gap:20px; padding:18px 16px; font-size:20px;"><div style="font-weight:600;">Мария&nbsp;Никитина</div><div>Веб-чат</div><div>Сроки</div><div class="txt-muted">01:20</div></div>
-      </div>
+    <!-- Чистый iframe со скриншотом без подсветок -->
+    <div style="position:relative; width:1248px; height:702px; border-radius:24px; overflow:hidden; box-shadow:0 24px 60px rgba(14,24,33,0.14); border:1px solid rgba(14,24,33,0.08); background:#fff;">
+      <iframe src="screens/audit.html"
+              loading="lazy"
+              sandbox="allow-same-origin allow-scripts"
+              style="position:absolute; top:0; left:0; width:1920px; height:1080px; border:0; transform:scale(0.65); transform-origin:top left; pointer-events:none;"></iframe>
     </div>
   </div>
 
   <div class="chrome-foot" style="display:none;"><span class="dot"></span><span class="sect">Аналитика</span></div>
 </section>
-
-<!-- ===================== 12 ГИБКИЕ НАСТРОЙКИ ===================== -->
-<section class="slide slide--brand" data-label="13 Гибкие настройки платформы" data-screen-label="13 13 Гибкие настройки платформы" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="12">
+<!-- ===================== 12 ГИБКИЕ НАСТРОЙКИ + ИНФРАСТРУКТУРА ===================== -->
+<section class="slide slide--brand" data-label="11 Гибкие настройки и инфраструктура" data-screen-label="11 11 Гибкие настройки и инфраструктура" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <img class="chrome-logo" src="assets/logo-allwhite.svg" alt="ROBOTMIA" style="opacity:0.95;">
   <svg class="pattern" style="top:-180px; right:-220px; width:1000px; height:1000px;" viewBox="0 0 500 500" fill="none" stroke="rgba(198,215,248,0.35)" stroke-width="0.6">
     <circle cx="250" cy="250" r="80"></circle>
@@ -820,142 +824,189 @@
     <circle cx="250" cy="250" r="230"></circle>
   </svg>
 
-  <div style="display:flex; flex-direction:column; gap:24px; position:relative; z-index:2;">
+  <div style="display:flex; flex-direction:column; gap:18px; position:relative; z-index:2;" data-anim="reveal-up">
     <div class="eyebrow" style="background:rgba(255,255,255,0.14); color:#fff; border:1px solid rgba(255,255,255,0.28);">Гибкость</div>
     <h2 class="slide-title" style="max-width:1500px; color:#fff;">Платформа подстраивается под&nbsp;<span style="color:var(--mia-blue-200);">ваши процессы</span></h2>
+    <p class="txt-lead" style="max-width:1500px; color:rgba(255,255,255,0.86); font-size:26px;">Маршрутизация, роли, источники, быстрые ответы и&nbsp;интерфейс&nbsp;— всё настраивается без&nbsp;разработчиков. Инфраструктура&nbsp;— в&nbsp;России, с&nbsp;гарантированным SLA.</p>
   </div>
 
-  <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:28px; margin-top:80px; position:relative; z-index:2;">
-    <div class="card card--ghost" style="padding:32px;">
-      <div style="width:60px; height:60px; border-radius:16px; background:rgba(255,255,255,0.16); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:24px;"><svg width="30" height="30"><use href="#i-users"></use></svg></div>
-      <div style="font-weight:700; font-size:28px; margin-bottom:12px; color:#fff;">Единая история клиента</div>
-      <p class="txt-sm" style="color:rgba(255,255,255,0.78); margin:0;">Контакты из разных каналов в&nbsp;одном профиле — вся переписка целиком.</p>
+  <!-- 5 фич + 2 плашки инфраструктуры -->
+  <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:16px; margin-top:32px; position:relative; z-index:2;">
+    <div class="card card--ghost" style="padding:22px 22px;" data-anim="reveal-up" data-anim-delay="80">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,255,255,0.16); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><svg width="24" height="24"><use href="#i-tune"></use></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-bottom:6px; color:#fff;">Маршрутизация</div>
+      <p class="txt-sm" style="color:rgba(255,255,255,0.78); margin:0; font-size:15px; line-height:1.4;">Распределение по&nbsp;отделам, навыкам, тегам и&nbsp;источнику обращения.</p>
     </div>
-    <div class="card card--ghost" style="padding:32px;">
-      <div style="width:60px; height:60px; border-radius:16px; background:rgba(255,255,255,0.16); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:24px;"><svg width="30" height="30"><use href="#i-tune"></use></svg></div>
-      <div style="font-weight:700; font-size:28px; margin-bottom:12px; color:#fff;">Кастомные&nbsp;атрибуты</div>
-      <p class="txt-sm" style="color:rgba(255,255,255,0.78); margin:0;">Данные из&nbsp;CRM подгружаются прямо в&nbsp;диалог — не нужно переключать окна.</p>
+    <div class="card card--ghost" style="padding:22px 22px;" data-anim="reveal-up" data-anim-delay="140">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,255,255,0.16); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><svg width="24" height="24"><use href="#i-users"></use></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-bottom:6px; color:#fff;">Роли</div>
+      <p class="txt-sm" style="color:rgba(255,255,255,0.78); margin:0; font-size:15px; line-height:1.4;">Три роли: администратор, менеджер, оператор&nbsp;— с&nbsp;разграничением прав.</p>
     </div>
-    <div class="card card--ghost" style="padding:32px;">
-      <div style="width:60px; height:60px; border-radius:16px; background:rgba(255,255,255,0.16); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:24px;"><svg width="30" height="30"><use href="#i-bolt"></use></svg></div>
-      <div style="font-weight:700; font-size:28px; margin-bottom:12px; color:#fff;">Быстрые ответы</div>
-      <p class="txt-sm" style="color:rgba(255,255,255,0.78); margin:0;">Шаблоны для типовых сообщений — поиск, импорт и&nbsp;гибкая настройка.</p>
+    <div class="card card--ghost" style="padding:22px 22px;" data-anim="reveal-up" data-anim-delay="200">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,255,255,0.16); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><svg width="24" height="24"><use href="#i-bolt"></use></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-bottom:6px; color:#fff;">Быстрые ответы</div>
+      <p class="txt-sm" style="color:rgba(255,255,255,0.78); margin:0; font-size:15px; line-height:1.4;">Шаблоны с&nbsp;поиском, тегами и&nbsp;импортом&nbsp;— отправка одной командой.</p>
     </div>
-    <div class="card card--ghost" style="padding:32px;">
-      <div style="width:60px; height:60px; border-radius:16px; background:rgba(255,255,255,0.16); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:24px;"><svg width="30" height="30"><use href="#i-msg"></use></svg></div>
-      <div style="font-weight:700; font-size:28px; margin-bottom:12px; color:#fff;">Комментарии в&nbsp;диалоге</div>
-      <p class="txt-sm" style="color:rgba(255,255,255,0.78); margin:0;">Скрытые от клиента комментарии при&nbsp;переводе на другого оператора.</p>
+    <div class="card card--ghost" style="padding:22px 22px;" data-anim="reveal-up" data-anim-delay="260">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,255,255,0.16); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><svg width="24" height="24"><use href="#i-grid"></use></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-bottom:6px; color:#fff;">Источники и&nbsp;контакты</div>
+      <p class="txt-sm" style="color:rgba(255,255,255,0.78); margin:0; font-size:15px; line-height:1.4;">Все каналы и&nbsp;контакты в&nbsp;одной базе: единый профиль, теги, история.</p>
     </div>
-  </div>
-
-  <div style="margin-top:80px; padding:36px 48px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:24px; display:flex; align-items:center; gap:32px; position:relative; z-index:2;">
-    <div style="width:64px; height:64px; border-radius:16px; background:#fff; color:var(--mia-blue); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="32" height="32"><use href="#i-shield"></use></svg></div>
-    <div>
-      <div style="font-weight:700; font-size:30px; color:#fff; margin-bottom:6px;">Гибкая команда и непрерывный прогресс</div>
-      <p class="txt-sm" style="color:rgba(255,255,255,0.82); margin:0; font-size:22px;">Развиваем чат-платформу каждый день, создаём фичи, повышающие бизнес-метрики, и&nbsp;прислушиваемся к&nbsp;клиентам.</p>
-    </div>
-  </div>
-
-  <div class="chrome-foot"><span class="dot"></span><span class="sect">Гибкость</span></div>
-</section>
-
-<!-- ===================== 12 КП — Структура из 3 частей ===================== -->
-<section class="slide" data-label="14 КП — структура" data-screen-label="14 14 КП — структура" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="13">
-  <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
-  <div style="display:flex; flex-direction:column; gap:20px;">
-    <div class="eyebrow">Коммерческое предложение</div>
-    <h2 class="slide-title" style="max-width:1600px;">Тарификация складывается из&nbsp;<span class="accent">трёх частей</span></h2>
-    <p class="txt-lead" style="max-width:1500px; font-size:30px;">Прозрачная схема: вы&nbsp;платите только за&nbsp;то, что используете — активных операторов, ИИ-доступы и&nbsp;подключённые номера.</p>
-  </div>
-
-  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; margin-top:56px;">
-    <div class="card" style="padding:40px 36px; display:flex; flex-direction:column; gap:22px; border:2px solid var(--mia-blue-200);">
-      <div style="display:flex; align-items:center; gap:16px;">
-        <div style="width:56px; height:56px; border-radius:14px; background:var(--mia-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:26px;">1</div>
-        <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">Ежемесячно</div>
-      </div>
-      <div style="font-weight:700; font-size:32px; line-height:1.18;">За&nbsp;активных операторов в&nbsp;месяц</div>
-      <div style="height:1px; background:rgba(14,24,33,0.08);"></div>
-      <p class="txt-body" style="margin:0; color:var(--mia-ink-500); font-size:22px;">Активный оператор — пользователь, совершивший отправку, получение или&nbsp;обработку сообщений на&nbsp;платформе в&nbsp;течение 24&nbsp;часов календарного дня.</p>
-      <div style="margin-top:auto; display:flex; align-items:baseline; gap:10px;">
-        <div style="font-family:var(--font-display); font-weight:900; font-size:46px; color:var(--mia-blue); line-height:1;">2 150&nbsp;₽</div>
-        <div class="txt-sm txt-muted" style="font-size:18px;">за&nbsp;лицензию</div>
-      </div>
-    </div>
-
-    <div class="card card--brand" style="padding:40px 36px; display:flex; flex-direction:column; gap:22px;">
-      <div style="display:flex; align-items:center; gap:16px;">
-        <div style="width:56px; height:56px; border-radius:14px; background:rgba(255,255,255,0.22); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:26px;">2</div>
-        <div class="txt-sm" style="color:rgba(255,255,255,0.75); text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">За&nbsp;доступ</div>
-      </div>
-      <div style="font-weight:700; font-size:32px; line-height:1.18; color:#fff;">Подключение ИИ-технологий для&nbsp;операторов</div>
-      <div style="height:1px; background:rgba(255,255,255,0.22);"></div>
-      <p class="txt-body" style="margin:0; color:rgba(255,255,255,0.88); font-size:22px;">Оплата за&nbsp;число «включений» ИИ — суфлёр, атрибуты, резюмирование, перефразировка. Тариф уменьшается с&nbsp;ростом объёма.</p>
-      <div style="margin-top:auto; display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;">
-        <div style="font-family:var(--font-display); font-weight:900; font-size:46px; color:#fff; line-height:1;">от&nbsp;1 000&nbsp;₽</div>
-        <div class="txt-sm" style="color:rgba(255,255,255,0.78); font-size:18px;">за&nbsp;доступ</div>
-      </div>
-    </div>
-
-    <div class="card" style="padding:40px 36px; display:flex; flex-direction:column; gap:22px; border:2px solid var(--mia-blue-200);">
-      <div style="display:flex; align-items:center; gap:16px;">
-        <div style="width:56px; height:56px; border-radius:14px; background:var(--mia-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:26px;">3</div>
-        <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">За&nbsp;номер</div>
-      </div>
-      <div style="font-weight:700; font-size:32px; line-height:1.18;">Подключение мессенджеров по&nbsp;номеру</div>
-      <div style="height:1px; background:rgba(14,24,33,0.08);"></div>
-      <p class="txt-body" style="margin:0; color:var(--mia-ink-500); font-size:22px;">Подключаете столько источников номеров, сколько нужно. Один номер в&nbsp;двух мессенджерах — оплата за&nbsp;оба.</p>
-      <div style="margin-top:auto; display:flex; align-items:baseline; gap:10px;">
-        <div style="font-family:var(--font-display); font-weight:900; font-size:46px; color:var(--mia-blue); line-height:1;">700&nbsp;₽</div>
-        <div class="txt-sm txt-muted" style="font-size:18px;">за&nbsp;номер</div>
-      </div>
+    <div class="card card--ghost" style="padding:22px 22px;" data-anim="reveal-up" data-anim-delay="320">
+      <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,255,255,0.16); color:#fff; display:flex; align-items:center; justify-content:center; margin-bottom:14px;"><svg width="24" height="24"><use href="#i-eye"></use></svg></div>
+      <div style="font-weight:700; font-size:21px; margin-bottom:6px; color:#fff;">Настройки интерфейса</div>
+      <p class="txt-sm" style="color:rgba(255,255,255,0.78); margin:0; font-size:15px; line-height:1.4;">Кастомизация диалогового окна, выбор отображаемых инструментов и&nbsp;колонок.</p>
     </div>
   </div>
 
-  <div style="margin-top:48px; display:grid; grid-template-columns:repeat(4, 1fr); gap:20px; padding:24px 32px; background:var(--mia-blue-050); border-radius:18px;">
-    <div style="display:flex; align-items:center; gap:12px;"><svg width="22" height="22" style="color:var(--mia-blue);"><use href="#i-check"></use></svg><div style="font-weight:600; font-size:19px;">Пробный период 3&nbsp;месяца</div></div>
-    <div style="display:flex; align-items:center; gap:12px;"><svg width="22" height="22" style="color:var(--mia-blue);"><use href="#i-check"></use></svg><div style="font-weight:600; font-size:19px;">Внедрение и&nbsp;обучение</div></div>
-    <div style="display:flex; align-items:center; gap:12px;"><svg width="22" height="22" style="color:var(--mia-blue);"><use href="#i-check"></use></svg><div style="font-weight:600; font-size:19px;">Безлимитные диалоги</div></div>
-    <div style="display:flex; align-items:center; gap:12px;"><svg width="22" height="22" style="color:var(--mia-blue);"><use href="#i-check"></use></svg><div style="font-weight:600; font-size:19px;">Обновления — бесплатно</div></div>
+  <!-- Хостинг + SLA — высокие плашки с явным цветом текста -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:32px; position:relative; z-index:2;" data-anim="reveal-up" data-anim-delay="380">
+    <div style="background:#fff; border-radius:20px; padding:40px 44px; display:flex; gap:26px; align-items:center; min-height:170px;">
+      <div style="width:72px; height:72px; border-radius:16px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="34" height="34"><use href="#i-grid"></use></svg></div>
+      <div>
+        <div style="font-family:var(--font-display); font-weight:800; font-size:30px; line-height:1.15; color:#0E1821; margin-bottom:10px;">Хостинг в&nbsp;России</div>
+        <p style="margin:0; font-size:20px; line-height:1.45; color:#3F4A56;">Серверы Селектел в&nbsp;ЦОДах Tier&nbsp;III. Данные не&nbsp;покидают РФ&nbsp;— соответствие 152-ФЗ из&nbsp;коробки.</p>
+      </div>
+    </div>
+    <div style="background:#fff; border-radius:20px; padding:40px 44px; display:flex; gap:28px; align-items:center; min-height:170px;">
+      <div style="font-family:var(--font-display); font-weight:900; font-size:78px; line-height:0.95; color:var(--mia-blue); letter-spacing:-0.03em; flex-shrink:0;">99,6%</div>
+      <div>
+        <div style="font-family:var(--font-display); font-weight:800; font-size:28px; line-height:1.15; color:#0E1821; margin-bottom:10px;">SLA доступности</div>
+        <p style="margin:0; font-size:20px; line-height:1.45; color:#3F4A56;">Зафиксировано в&nbsp;договоре. Мониторинг&nbsp;24×7 и&nbsp;регулярная техническая поддержка.</p>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- ===================== 13 КП — Расчёт по активным операторам ===================== -->
-<section class="slide" data-label="15 КП — расчёт операторов" data-screen-label="15 15 КП — расчёт операторов" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="14">
+<!-- ===================== 13 КП — СТРУКТУРА И ЦЕНЫ ===================== -->
+<section class="slide slide--offer" data-label="12 Ваше коммерческое предложение" data-screen-label="12 12 Ваше коммерческое предложение" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" style="background:linear-gradient(180deg, #F4F8FF 0%, #FFFFFF 60%);">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
-  <div style="display:flex; flex-direction:column; gap:20px;">
-    <div class="eyebrow">Часть 1 · Активные операторы</div>
+
+  <div style="display:flex; flex-direction:column; gap:16px;" data-anim="reveal-up">
+    <div class="eyebrow" style="background:var(--mia-blue); color:#fff; border:none; font-size:18px; padding:10px 22px;">Прозрачная тарификация</div>
+    <h2 class="slide-title" style="max-width:1700px;">Ваше <span class="accent">коммерческое предложение</span></h2>
+    <p class="txt-lead" style="max-width:1700px; font-size:28px; white-space:nowrap;">Платите только за&nbsp;то, что используете: активные операторы, ИИ-доступы и&nbsp;подключённые номера.&nbsp;&nbsp;ИИ&nbsp;— со&nbsp;скидкой по&nbsp;объёму.</p>
+  </div>
+
+  <!-- Уникальные условия — выделенным блоком СВЕРХУ, каждый пункт в отдельной плитке -->
+  <div style="margin-top:30px; padding:28px 32px; background:linear-gradient(135deg, var(--mia-blue) 0%, var(--mia-blue-navy) 100%); border-radius:20px; box-shadow:0 18px 44px rgba(19,96,243,0.26);" data-anim="reveal-up" data-anim-delay="80">
+    <div style="font-size:15px; color:rgba(255,255,255,0.85); text-transform:uppercase; letter-spacing:0.16em; font-weight:800; margin-bottom:18px;">Что уже включено в&nbsp;стоимость</div>
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px;">
+      <div style="display:flex; align-items:center; gap:14px; color:#fff; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:18px 20px;"><svg width="28" height="28" style="color:#fff; flex-shrink:0;"><use href="#i-check"></use></svg><div style="font-weight:700; font-size:20px; line-height:1.25;">Пробный период<br>3&nbsp;месяца</div></div>
+      <div style="display:flex; align-items:center; gap:14px; color:#fff; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:18px 20px;"><svg width="28" height="28" style="color:#fff; flex-shrink:0;"><use href="#i-check"></use></svg><div style="font-weight:700; font-size:20px; line-height:1.25;">Внедрение<br>и&nbsp;обучение</div></div>
+      <div style="display:flex; align-items:center; gap:14px; color:#fff; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:18px 20px;"><svg width="28" height="28" style="color:#fff; flex-shrink:0;"><use href="#i-check"></use></svg><div style="font-weight:700; font-size:20px; line-height:1.25;">Безлимит сообщений<br>и&nbsp;диалогов</div></div>
+      <div style="display:flex; align-items:center; gap:14px; color:#fff; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.18); border-radius:14px; padding:18px 20px;"><svg width="28" height="28" style="color:#fff; flex-shrink:0;"><use href="#i-check"></use></svg><div style="font-weight:700; font-size:20px; line-height:1.25;">Обновления платформы<br>— бесплатно</div></div>
+    </div>
+  </div>
+
+  <!-- 3 части: компактные карточки с ценой -->
+  <div style="display:grid; grid-template-columns:1fr 1.4fr 1fr; gap:22px; margin-top:40px;">
+    <!-- 1. Активные операторы -->
+    <div class="card" style="padding:32px 32px; display:flex; flex-direction:column; gap:16px; border:2px solid var(--mia-blue-200);" data-anim="reveal-up" data-anim-delay="80">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="width:48px; height:48px; border-radius:12px; background:var(--mia-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:24px;">1</div>
+        <div style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; font-size:16px;">Ежемесячно</div>
+      </div>
+      <div style="font-weight:700; font-size:28px; line-height:1.2;">Активные операторы</div>
+      <p style="margin:0; font-size:19px; line-height:1.4; color:#3F4A56;">Тот, кто отправил, получил или&nbsp;обработал сообщение в&nbsp;течение&nbsp;24&nbsp;часов календарного дня.</p>
+      <div style="height:1px; background:rgba(14,24,33,0.08);"></div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:baseline;">
+          <div style="font-size:18px; color:var(--mia-ink-500);">Минимум&nbsp;/&nbsp;мес</div>
+          <div style="font-weight:700; font-size:22px;">50&nbsp;000&nbsp;₽</div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline;">
+          <div style="font-size:18px; color:var(--mia-ink-500);">Минимум лицензий</div>
+          <div style="font-weight:700; font-size:22px;">20&nbsp;шт.</div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:baseline;">
+          <div style="font-size:18px; color:var(--mia-ink-500);">Свыше минимума</div>
+          <div style="font-family:var(--font-display); font-weight:900; font-size:30px; color:var(--mia-blue); letter-spacing:-0.01em;">2&nbsp;150&nbsp;₽</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. ИИ-доступ - объёмные тарифы -->
+    <div class="card card--brand" style="padding:32px 34px; display:flex; flex-direction:column; gap:16px;" data-anim="reveal-up" data-anim-delay="160">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,255,255,0.22); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:24px;">2</div>
+        <div style="color:rgba(255,255,255,0.85); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; font-size:16px;">За&nbsp;доступ · ежемесячно</div>
+      </div>
+      <div style="font-weight:700; font-size:28px; line-height:1.2; color:#fff;">ИИ-доступ&nbsp;— чем больше, тем дешевле</div>
+      <p style="margin:0; color:rgba(255,255,255,0.92); font-size:19px; line-height:1.4;">Суфлёр, атрибуты, резюме, перефразировка&nbsp;— всё в&nbsp;одном доступе.</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+        <div style="background:rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px;">
+          <div style="font-size:15px; color:rgba(255,255,255,0.85);">1—10 операторов</div>
+          <div style="font-family:var(--font-display); font-weight:900; font-size:30px; color:#fff; margin-top:2px; letter-spacing:-0.01em;">1&nbsp;399&nbsp;₽</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px;">
+          <div style="font-size:15px; color:rgba(255,255,255,0.85);">11—50 операторов</div>
+          <div style="font-family:var(--font-display); font-weight:900; font-size:30px; color:#fff; margin-top:2px; letter-spacing:-0.01em;">1&nbsp;299&nbsp;₽</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.12); border-radius:12px; padding:14px 16px;">
+          <div style="font-size:15px; color:rgba(255,255,255,0.85);">51—100 операторов</div>
+          <div style="font-family:var(--font-display); font-weight:900; font-size:30px; color:#fff; margin-top:2px; letter-spacing:-0.01em;">1&nbsp;199&nbsp;₽</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.22); border:1px solid rgba(255,255,255,0.32); border-radius:12px; padding:14px 16px;">
+          <div style="font-size:15px; color:rgba(255,255,255,0.92);">101—200 операторов</div>
+          <div style="font-family:var(--font-display); font-weight:900; font-size:30px; color:#fff; margin-top:2px; letter-spacing:-0.01em;">1&nbsp;000&nbsp;₽</div>
+        </div>
+      </div>
+      <div style="font-size:15px; color:rgba(255,255,255,0.85); line-height:1.45;">В&nbsp;доступ входит: суфлёр&nbsp;3&nbsp;000, атрибуты&nbsp;1&nbsp;000, резюме&nbsp;1&nbsp;000, перефразировка&nbsp;3&nbsp;000 запросов&nbsp;/&nbsp;мес. Сверх&nbsp;— 0,5&nbsp;₽&nbsp;/&nbsp;запрос.</div>
+    </div>
+
+    <!-- 3. Каналы -->
+    <div class="card" style="padding:32px 32px; display:flex; flex-direction:column; gap:16px; border:2px solid var(--mia-blue-200);" data-anim="reveal-up" data-anim-delay="240">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <div style="width:48px; height:48px; border-radius:12px; background:var(--mia-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:24px;">3</div>
+        <div style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; font-size:16px;">За&nbsp;номер · ежемесячно</div>
+      </div>
+      <div style="font-weight:700; font-size:28px; line-height:1.2;">Подключение по&nbsp;номеру</div>
+      <p style="margin:0; font-size:19px; line-height:1.4; color:#3F4A56;">Один номер в&nbsp;двух мессенджерах = два&nbsp;подключения.</p>
+      <div style="height:1px; background:rgba(14,24,33,0.08);"></div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; align-items:center; gap:12px; padding:10px 0;"><img src="assets/channels-original/2062095_application_chat_communication_logo_whatsapp_icon.svg" style="width:30px;height:30px;"><div style="flex:1; font-size:19px;">WhatsApp</div><div style="font-family:var(--font-display); font-weight:700; font-size:24px; color:var(--mia-blue);">700&nbsp;₽</div></div>
+        <div style="display:flex; align-items:center; gap:12px; padding:10px 0; border-top:1px solid rgba(14,24,33,0.06);"><img src="assets/channels-original/Telegram_2019_Logo.svg" style="width:30px;height:30px;"><div style="flex:1; font-size:19px;">Telegram</div><div style="font-family:var(--font-display); font-weight:700; font-size:24px; color:var(--mia-blue);">700&nbsp;₽</div></div>
+        <div style="display:flex; align-items:center; gap:12px; padding:10px 0; border-top:1px solid rgba(14,24,33,0.06);"><img src="assets/channels-original/Логотип_MAX.svg" style="width:30px;height:30px;"><div style="flex:1; font-size:19px;">МАКС</div><div style="font-family:var(--font-display); font-weight:700; font-size:24px; color:var(--mia-blue);">700&nbsp;₽</div></div>
+      </div>
+    </div>
+  </div>
+
+</section>
+<!-- ===================== 14 КП — Расчёт по активным операторам ===================== -->
+<section class="slide" data-label="13 КП — расчёт операторов" data-screen-label="13 13 КП — расчёт операторов" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
+  <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
+  <div style="display:flex; flex-direction:column; gap:22px;">
+    <div class="eyebrow">Метод расчёта</div>
     <h2 class="slide-title" style="max-width:1700px;">Платите по&nbsp;<span class="accent">пику нагрузки</span> — а&nbsp;не за&nbsp;штат</h2>
-    <p class="txt-lead" style="max-width:1600px; font-size:28px;">Берётся день месяца с&nbsp;максимальным числом активных операторов. Если факт меньше минимума — оплачиваете только минимум.</p>
+    <p class="txt-lead" style="max-width:1640px; font-size:32px;">Берётся день месяца с&nbsp;максимальным числом активных операторов. Если факт меньше минимума — оплачиваете только минимум.</p>
   </div>
 
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; margin-top:48px;">
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px; margin-top:56px;">
     <!-- Шаг 1 -->
-    <div class="card" style="padding:32px 28px; display:flex; flex-direction:column; gap:16px;">
+    <div class="card" style="padding:38px 36px; display:flex; flex-direction:column; gap:20px;">
       <div style="display:flex; align-items:center; gap:14px;">
-        <div style="width:44px; height:44px; border-radius:12px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:20px;">1</div>
-        <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">Шаг&nbsp;1</div>
+        <div style="width:52px; height:52px; border-radius:14px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:24px;">1</div>
+        <div style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; font-size:17px;">Шаг&nbsp;1</div>
       </div>
-      <div style="font-weight:700; font-size:24px; line-height:1.2;">Фиксируем минимум в&nbsp;договоре</div>
-      <p class="txt-sm txt-muted" style="margin:0; font-size:18px;">RobotMIA устанавливает минимальное кол-во активных операторов в&nbsp;месяц.</p>
-      <div style="margin-top:auto; padding:18px; background:var(--mia-blue-050); border-radius:12px; text-align:center;">
-        <div style="font-family:var(--font-display); font-weight:900; font-size:42px; color:var(--mia-blue); line-height:1;">20</div>
-        <div class="txt-sm" style="color:var(--mia-ink-500); margin-top:6px; font-size:16px;">минимум лицензий</div>
+      <div style="font-weight:700; font-size:30px; line-height:1.2;">Фиксируем минимум в&nbsp;договоре</div>
+      <p style="margin:0; font-size:22px; line-height:1.45; color:#3F4A56;">RobotMIA устанавливает минимальное кол-во активных операторов в&nbsp;месяц.</p>
+      <div style="margin-top:auto; padding:24px; background:var(--mia-blue-050); border-radius:14px; text-align:center;">
+        <div style="font-family:var(--font-display); font-weight:900; font-size:56px; color:var(--mia-blue); line-height:1;">20</div>
+        <div style="color:var(--mia-ink-500); margin-top:8px; font-size:20px;">минимум лицензий</div>
       </div>
     </div>
 
     <!-- Шаг 2 -->
-    <div class="card" style="padding:28px 24px; display:flex; flex-direction:column; gap:14px;">
+    <div class="card" style="padding:38px 32px; display:flex; flex-direction:column; gap:18px;">
       <div style="display:flex; align-items:center; gap:14px;">
-        <div style="width:44px; height:44px; border-radius:12px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:20px;">2</div>
-        <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">Шаг&nbsp;2</div>
+        <div style="width:52px; height:52px; border-radius:14px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:24px;">2</div>
+        <div style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; font-size:17px;">Шаг&nbsp;2</div>
       </div>
-      <div style="font-weight:700; font-size:24px; line-height:1.2;">Используем платформу&nbsp;— ИИ считает дни</div>
+      <div style="font-weight:700; font-size:26px; line-height:1.2;">Каждый день мы&nbsp;отслеживаем число активных операторов</div>
 
       <!-- Bar chart: дни месяца с разными значениями -->
-      <div style="background:var(--mia-grey-025); border-radius:12px; padding:16px 14px;">
-        <div style="display:flex; align-items:flex-end; gap:3px; height:120px;">
-          <!-- 12 баров - 12 дней -->
+      <div style="background:var(--mia-grey-025); border-radius:14px; padding:20px 18px;">
+        <div style="display:flex; align-items:flex-end; gap:3px; height:150px;">
           <div style="flex:1; background:var(--mia-blue-200); height:38%; border-radius:3px 3px 0 0;" title="22"></div>
           <div style="flex:1; background:var(--mia-blue-200); height:42%; border-radius:3px 3px 0 0;"></div>
           <div style="flex:1; background:var(--mia-blue-200); height:50%; border-radius:3px 3px 0 0;"></div>
@@ -964,131 +1015,132 @@
           <div style="flex:1; background:var(--mia-blue-200); height:55%; border-radius:3px 3px 0 0;"></div>
           <div style="flex:1; background:var(--mia-blue-200); height:48%; border-radius:3px 3px 0 0;"></div>
           <div style="flex:1; background:var(--mia-blue); height:100%; border-radius:3px 3px 0 0; position:relative;">
-            <div style="position:absolute; top:-26px; left:50%; transform:translateX(-50%); background:var(--mia-blue); color:#fff; font-size:13px; font-weight:700; padding:2px 8px; border-radius:6px; white-space:nowrap;">28</div>
+            <div style="position:absolute; top:-30px; left:50%; transform:translateX(-50%); background:var(--mia-blue); color:#fff; font-size:15px; font-weight:700; padding:3px 10px; border-radius:6px; white-space:nowrap;">28</div>
           </div>
           <div style="flex:1; background:var(--mia-blue-200); height:62%; border-radius:3px 3px 0 0;"></div>
           <div style="flex:1; background:var(--mia-blue-200); height:54%; border-radius:3px 3px 0 0;"></div>
           <div style="flex:1; background:var(--mia-blue-200); height:50%; border-radius:3px 3px 0 0;"></div>
           <div style="flex:1; background:var(--mia-blue-200); height:46%; border-radius:3px 3px 0 0;"></div>
         </div>
-        <div style="display:flex; justify-content:space-between; margin-top:8px; font-size:12px; color:var(--mia-ink-300);">
+        <div style="display:flex; justify-content:space-between; margin-top:10px; font-size:14px; color:var(--mia-ink-300);">
           <span>01.03</span><span>15.03</span><span>31.03</span>
         </div>
       </div>
-      <p class="txt-sm txt-muted" style="margin:0; font-size:15px;">Каждый день — кол-во активных операторов.</p>
+      <p style="margin:0; font-size:18px; color:#3F4A56;">Каждый день&nbsp;— кол-во активных операторов.</p>
     </div>
 
     <!-- Шаг 3 -->
-    <div class="card card--brand" style="padding:32px 28px; display:flex; flex-direction:column; gap:16px;">
+    <div class="card card--brand" style="padding:38px 36px; display:flex; flex-direction:column; gap:20px;">
       <div style="display:flex; align-items:center; gap:14px;">
-        <div style="width:44px; height:44px; border-radius:12px; background:rgba(255,255,255,0.22); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:20px;">3</div>
-        <div class="txt-sm" style="color:rgba(255,255,255,0.78); text-transform:uppercase; letter-spacing:0.12em; font-weight:700;">Шаг&nbsp;3</div>
+        <div style="width:52px; height:52px; border-radius:14px; background:rgba(255,255,255,0.22); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:24px;">3</div>
+        <div style="color:rgba(255,255,255,0.85); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; font-size:17px;">Шаг&nbsp;3</div>
       </div>
-      <div style="font-weight:700; font-size:24px; line-height:1.2; color:#fff;">Платите по&nbsp;дню с&nbsp;пиком</div>
-      <p class="txt-sm" style="margin:0; color:rgba(255,255,255,0.88); font-size:18px;">Берём день с&nbsp;максимальным числом активных операторов и&nbsp;умножаем на&nbsp;тариф.</p>
-      <div style="margin-top:auto; padding:18px; background:rgba(255,255,255,0.14); border-radius:12px; text-align:center; backdrop-filter:blur(4px);">
-        <div style="font-family:var(--font-display); font-weight:900; font-size:42px; color:#fff; line-height:1;">28&nbsp;×&nbsp;2 150&nbsp;₽</div>
-        <div style="height:1px; background:rgba(255,255,255,0.22); margin:10px 0;"></div>
-        <div style="font-family:var(--font-display); font-weight:900; font-size:32px; color:#fff;">= 60 200&nbsp;₽</div>
-        <div class="txt-sm" style="color:rgba(255,255,255,0.78); font-size:14px; margin-top:4px;">за месяц</div>
+      <div style="font-weight:700; font-size:30px; line-height:1.2; color:#fff;">Платите по&nbsp;дню с&nbsp;пиком</div>
+      <p style="margin:0; color:rgba(255,255,255,0.92); font-size:22px; line-height:1.45;">Берём день с&nbsp;максимальным числом активных операторов и&nbsp;умножаем на&nbsp;тариф.</p>
+      <div style="margin-top:auto; padding:24px; background:rgba(255,255,255,0.14); border-radius:14px; text-align:center; backdrop-filter:blur(4px);">
+        <div style="font-family:var(--font-display); font-weight:900; font-size:50px; color:#fff; line-height:1;">28&nbsp;×&nbsp;2 150&nbsp;₽</div>
+        <div style="height:1px; background:rgba(255,255,255,0.22); margin:14px 0;"></div>
+        <div style="font-family:var(--font-display); font-weight:900; font-size:40px; color:#fff;">= 60 200&nbsp;₽</div>
+        <div style="color:rgba(255,255,255,0.85); font-size:17px; margin-top:6px;">за месяц</div>
       </div>
     </div>
   </div>
 
   <!-- Bottom note -->
-  <div style="margin-top:32px; padding:20px 28px; background:var(--mia-blue-050); border-radius:14px; display:flex; align-items:center; gap:14px;">
-    <svg width="22" height="22" style="color:var(--mia-blue); flex-shrink:0;"><use href="#i-shield"></use></svg>
-    <p style="margin:0; font-size:18px; color:var(--mia-ink-500);"><b>Минимальная стоимость в&nbsp;месяц&nbsp;— 50&nbsp;000&nbsp;₽.</b> Если факт ≤&nbsp;минимума, оплачивается только минимум — никаких сюрпризов.</p>
+  <div style="margin-top:40px; padding:26px 36px; background:var(--mia-blue-050); border-radius:16px; display:flex; align-items:center; gap:18px;">
+    <svg width="28" height="28" style="color:var(--mia-blue); flex-shrink:0;"><use href="#i-shield"></use></svg>
+    <p style="margin:0; font-size:22px; color:#3F4A56;"><b style="color:#0E1821;">Минимальная стоимость в&nbsp;месяц&nbsp;— 50&nbsp;000&nbsp;₽.</b> Если факт ≤&nbsp;минимума, оплачивается минимум — никаких сюрпризов.</p>
   </div>
 </section>
-
-<!-- ===================== 14 КП — Цены по уровням ===================== -->
-<section class="slide" data-label="16 КП — цены" data-screen-label="16 16 КП — цены" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="15">
+<!-- ===================== 15 ДОРОЖНАЯ КАРТА Q3+Q4 2026 ===================== -->
+<section class="slide" data-label="14 Дорожная карта 2026" data-screen-label="14 14 Дорожная карта 2026" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
-  <div style="display:flex; flex-direction:column; gap:20px;">
-    <div class="eyebrow">Условия и&nbsp;тарифы</div>
-    <h2 class="slide-title" style="max-width:1700px;">Цены — <span class="accent">с&nbsp;объёмной скидкой</span></h2>
+  <svg class="pattern" style="top:-200px; right:-260px; width:900px; height:900px; opacity:0.08;" viewBox="0 0 500 500" fill="none" stroke="#1360F3" stroke-width="0.6">
+    <circle cx="250" cy="250" r="80"></circle>
+    <circle cx="250" cy="250" r="140"></circle>
+    <circle cx="250" cy="250" r="200"></circle>
+    <circle cx="250" cy="250" r="260"></circle>
+  </svg>
+
+  <div style="display:flex; flex-direction:column; gap:20px; position:relative; z-index:2;" data-anim="reveal-up">
+    <div class="eyebrow">Roadmap 2026</div>
+    <h2 class="slide-title" style="max-width:1640px;">Что появится в&nbsp;платформе <span class="accent">в&nbsp;ближайшие два&nbsp;квартала</span></h2>
+    <p class="txt-lead" style="max-width:1500px; font-size:30px;">Развиваем продукт каждую неделю. Эти возможности&nbsp;— уже в&nbsp;разработке и&nbsp;будут доступны действующим клиентам без&nbsp;доплаты.</p>
   </div>
 
-  <div style="display:grid; grid-template-columns:1.1fr 1.4fr 1fr; gap:24px; margin-top:48px;">
-    <!-- Часть 1: Активные операторы -->
-    <div class="card" style="padding:28px 28px; display:flex; flex-direction:column; gap:14px;">
-      <div style="display:flex; align-items:center; gap:10px;">
-        <div style="width:36px; height:36px; border-radius:10px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:18px;">1</div>
-        <div style="font-weight:700; font-size:20px;">Активные операторы</div>
+  <!-- Двухколоночный таймлайн Q3 / Q4 -->
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:36px; margin-top:54px; position:relative; z-index:2;">
+
+    <!-- Q3 2026 -->
+    <div style="display:flex; flex-direction:column; gap:18px;" data-anim="reveal-up" data-anim-delay="80">
+      <div style="display:flex; align-items:center; gap:18px;">
+        <div style="width:88px; height:88px; border-radius:20px; background:var(--mia-blue); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:30px; letter-spacing:-0.02em; flex-shrink:0;">Q3</div>
+        <div>
+          <div style="font-family:var(--font-display); font-weight:900; font-size:42px; color:var(--mia-graphite); line-height:1; letter-spacing:-0.02em;">2026</div>
+          <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; font-size:14px; margin-top:6px;">Углубление ИИ</div>
+        </div>
       </div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div style="display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid rgba(14,24,33,0.06);">
-          <div style="font-size:16px; color:var(--mia-ink-500);">Минимум&nbsp;в&nbsp;месяц</div>
-          <div style="font-weight:700; font-size:18px;">50&nbsp;000&nbsp;₽</div>
+
+      <div class="card" style="padding:24px 28px; display:flex; gap:18px; align-items:flex-start;">
+        <div style="width:48px; height:48px; border-radius:12px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="24" height="24"><use href="#i-spark"></use></svg></div>
+        <div>
+          <div style="font-weight:700; font-size:24px; line-height:1.2; margin-bottom:6px;">ИИ-суфлёр → ИИ-копилот</div>
+          <p class="txt-sm txt-muted" style="margin:0; font-size:18px; line-height:1.4;">Помощник не&nbsp;только подсказывает ответы, но&nbsp;и&nbsp;ведёт оператора по&nbsp;диалогу: проактивно предлагает следующий шаг, действие в&nbsp;CRM, эскалацию.</p>
         </div>
-        <div style="display:flex; justify-content:space-between; padding:12px 0; border-bottom:1px solid rgba(14,24,33,0.06);">
-          <div style="font-size:16px; color:var(--mia-ink-500);">Минимум лицензий</div>
-          <div style="font-weight:700; font-size:18px;">20&nbsp;шт.</div>
+      </div>
+
+      <div class="card" style="padding:24px 28px; display:flex; gap:18px; align-items:flex-start;">
+        <div style="width:48px; height:48px; border-radius:12px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="24" height="24"><use href="#i-chat"></use></svg></div>
+        <div>
+          <div style="font-weight:700; font-size:24px; line-height:1.2; margin-bottom:6px;">Расширение чат-ботов</div>
+          <p class="txt-sm txt-muted" style="margin:0; font-size:18px; line-height:1.4;">Передача дополнительных данных, уникальные сценарии использования чат-ботов, улучшение перевода на&nbsp;оператора.</p>
         </div>
-        <div style="display:flex; justify-content:space-between; padding:12px 0;">
-          <div style="font-size:16px; color:var(--mia-ink-500);">Свыше минимума</div>
-          <div style="font-weight:700; font-size:18px; color:var(--mia-blue);">2&nbsp;150&nbsp;₽/шт.</div>
+      </div>
+
+      <div class="card" style="padding:24px 28px; display:flex; gap:18px; align-items:flex-start;">
+        <div style="width:48px; height:48px; border-radius:12px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="24" height="24"><use href="#i-eye"></use></svg></div>
+        <div>
+          <div style="font-weight:700; font-size:24px; line-height:1.2; margin-bottom:6px;">Речевая аналитика в&nbsp;Аудите</div>
+          <p class="txt-sm txt-muted" style="margin:0; font-size:18px; line-height:1.4;">Автоматическая оценка диалогов: соблюдение скрипта, эмоциональный фон, ключевые причины обращений&nbsp;— без&nbsp;ручного прослушивания.</p>
         </div>
       </div>
     </div>
 
-    <!-- Часть 2: ИИ-доступ (объёмные тарифы) -->
-    <div class="card card--brand" style="padding:28px 32px; display:flex; flex-direction:column; gap:14px;">
-      <div style="display:flex; align-items:center; gap:10px;">
-        <div style="width:36px; height:36px; border-radius:10px; background:rgba(255,255,255,0.22); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:900; font-size:18px;">2</div>
-        <div style="font-weight:700; font-size:20px; color:#fff;">ИИ-доступ&nbsp;— чем больше, тем дешевле</div>
-      </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:6px;">
-        <div style="background:rgba(255,255,255,0.12); border-radius:10px; padding:14px 16px;">
-          <div style="font-size:14px; color:rgba(255,255,255,0.75);">1—10 операторов</div>
-          <div style="font-family:var(--font-display); font-weight:900; font-size:28px; color:#fff; margin-top:4px;">1 399&nbsp;₽</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.12); border-radius:10px; padding:14px 16px;">
-          <div style="font-size:14px; color:rgba(255,255,255,0.75);">11—50 операторов</div>
-          <div style="font-family:var(--font-display); font-weight:900; font-size:28px; color:#fff; margin-top:4px;">1 299&nbsp;₽</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.12); border-radius:10px; padding:14px 16px;">
-          <div style="font-size:14px; color:rgba(255,255,255,0.75);">51—100 операторов</div>
-          <div style="font-family:var(--font-display); font-weight:900; font-size:28px; color:#fff; margin-top:4px;">1 199&nbsp;₽</div>
-        </div>
-        <div style="background:rgba(255,255,255,0.22); border:1px solid rgba(255,255,255,0.32); border-radius:10px; padding:14px 16px;">
-          <div style="font-size:14px; color:rgba(255,255,255,0.85);">101—200 операторов</div>
-          <div style="font-family:var(--font-display); font-weight:900; font-size:28px; color:#fff; margin-top:4px;">1 000&nbsp;₽</div>
+    <!-- Q4 2026 -->
+    <div style="display:flex; flex-direction:column; gap:18px;" data-anim="reveal-up" data-anim-delay="240">
+      <div style="display:flex; align-items:center; gap:18px;">
+        <div style="width:88px; height:88px; border-radius:20px; background:var(--mia-graphite); color:#fff; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:900; font-size:30px; letter-spacing:-0.02em; flex-shrink:0;">Q4</div>
+        <div>
+          <div style="font-family:var(--font-display); font-weight:900; font-size:42px; color:var(--mia-graphite); line-height:1; letter-spacing:-0.02em;">2026</div>
+          <div class="txt-sm" style="color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; font-size:14px; margin-top:6px;">Омниканальная платформа</div>
         </div>
       </div>
-      <div style="font-size:14px; color:rgba(255,255,255,0.78); line-height:1.4; margin-top:4px;">В&nbsp;один доступ входит: суфлёр (3&nbsp;000), атрибуты (1&nbsp;000), резюме (1&nbsp;000), перефразировка (3&nbsp;000) запросов. Сверх — 0,5&nbsp;₽/запрос.</div>
-    </div>
 
-    <!-- Часть 3: Каналы -->
-    <div class="card" style="padding:28px 28px; display:flex; flex-direction:column; gap:14px;">
-      <div style="display:flex; align-items:center; gap:10px;">
-        <div style="width:36px; height:36px; border-radius:10px; background:var(--mia-blue-050); color:var(--mia-blue); display:flex; align-items:center; justify-content:center; font-weight:900; font-size:18px;">3</div>
-        <div style="font-weight:700; font-size:20px;">Подключение&nbsp;по&nbsp;номеру</div>
+      <div class="card" style="padding:24px 28px; display:flex; gap:18px; align-items:flex-start; border:2px solid var(--mia-blue-200);">
+        <div style="width:48px; height:48px; border-radius:12px; background:var(--mia-blue); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="24" height="24"><use href="#i-phone"></use></svg></div>
+        <div>
+          <div style="font-weight:700; font-size:24px; line-height:1.2; margin-bottom:6px;">Телефония внутри платформы</div>
+          <p class="txt-sm txt-muted" style="margin:0; font-size:18px; line-height:1.4;">Звонки клиентов в&nbsp;том&nbsp;же окне, что&nbsp;и&nbsp;чаты. История звонков склеивается с&nbsp;перепиской в&nbsp;единый профиль.</p>
+        </div>
       </div>
-      <div style="display:flex; flex-direction:column; gap:8px;">
-        <div style="display:flex; align-items:center; gap:10px; padding:10px 0;"><img src="assets/channels/whatsapp.svg" style="width:28px;height:28px;"><div style="flex:1; font-size:16px;">WhatsApp</div><div style="font-weight:700; font-size:18px; color:var(--mia-blue);">700&nbsp;₽</div></div>
-        <div style="display:flex; align-items:center; gap:10px; padding:10px 0; border-top:1px solid rgba(14,24,33,0.06);"><img src="assets/channels/telegram.svg" style="width:28px;height:28px;"><div style="flex:1; font-size:16px;">Telegram</div><div style="font-weight:700; font-size:18px; color:var(--mia-blue);">700&nbsp;₽</div></div>
-        <div style="display:flex; align-items:center; gap:10px; padding:10px 0; border-top:1px solid rgba(14,24,33,0.06);"><img src="assets/channels/max.svg" style="width:28px;height:28px;"><div style="flex:1; font-size:16px;">MAX</div><div style="font-weight:700; font-size:18px; color:var(--mia-blue);">700&nbsp;₽</div></div>
+
+      <div class="card card--brand" style="padding:24px 28px; display:flex; gap:18px; align-items:flex-start;">
+        <div style="width:48px; height:48px; border-radius:12px; background:rgba(255,255,255,0.22); color:#fff; display:flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="24" height="24"><use href="#i-grid"></use></svg></div>
+        <div>
+          <div style="font-weight:700; font-size:24px; line-height:1.2; margin-bottom:6px; color:#fff;">Полная омниканальность</div>
+          <p class="txt-sm" style="margin:0; color:rgba(255,255,255,0.88); font-size:18px; line-height:1.4;">Чаты + голос + email + соцсети&nbsp;— одна история клиента, одна метрика, один интерфейс оператора.</p>
+        </div>
       </div>
-      <div style="font-size:13px; color:var(--mia-ink-300); line-height:1.4; margin-top:auto;">Один номер в&nbsp;двух мессенджерах = два&nbsp;подключения.</div>
     </div>
   </div>
 
-  <!-- Что входит -->
-  <div style="margin-top:32px; padding:24px 32px; background:var(--mia-blue-050); border-radius:18px;">
-    <div style="font-size:14px; color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; font-weight:700; margin-bottom:14px;">Что уже включено в&nbsp;стоимость</div>
-    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:18px;">
-      <div style="display:flex; align-items:center; gap:12px;"><svg width="22" height="22" style="color:var(--mia-blue); flex-shrink:0;"><use href="#i-check"></use></svg><div style="font-weight:600; font-size:18px;">Пробный период&nbsp;3&nbsp;месяца</div></div>
-      <div style="display:flex; align-items:center; gap:12px;"><svg width="22" height="22" style="color:var(--mia-blue); flex-shrink:0;"><use href="#i-check"></use></svg><div style="font-weight:600; font-size:18px;">Внедрение и&nbsp;обучение</div></div>
-      <div style="display:flex; align-items:center; gap:12px;"><svg width="22" height="22" style="color:var(--mia-blue); flex-shrink:0;"><use href="#i-check"></use></svg><div style="font-weight:600; font-size:18px;">Безлимит сообщений</div></div>
-      <div style="display:flex; align-items:center; gap:12px;"><svg width="22" height="22" style="color:var(--mia-blue); flex-shrink:0;"><use href="#i-check"></use></svg><div style="font-weight:600; font-size:18px;">Бесплатные обновления</div></div>
-    </div>
+  <div style="margin-top:36px; padding:20px 32px; background:var(--mia-blue-050); border-radius:14px; display:flex; align-items:center; gap:18px; position:relative; z-index:2;" data-anim="reveal-up" data-anim-delay="400">
+    <svg width="22" height="22" style="color:var(--mia-blue); flex-shrink:0;"><use href="#i-check"></use></svg>
+    <div style="font-size:18px; color:var(--mia-ink-500);">Все обновления&nbsp;— <b style="color:var(--mia-graphite);">бесплатно для&nbsp;действующих клиентов.</b> Никаких отдельных лицензий и&nbsp;доплат за&nbsp;«новые модули».</div>
   </div>
 </section>
-
 <!-- ===================== 14 КОНТАКТЫ ===================== -->
-<section class="slide slide--dark" data-label="17 Контакты" data-screen-label="17 17 Контакты" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="16">
+<section class="slide slide--dark" data-label="15 Контакты" data-screen-label="15 15 Контакты" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text">
   <svg class="pattern" style="top:-300px; left:-200px; width:1400px; height:1400px; opacity:0.14" viewBox="0 0 500 500" fill="none" stroke="#7BBDFF" stroke-width="0.5">
     <g>
       <circle cx="250" cy="250" r="60"></circle>
@@ -1106,14 +1158,14 @@
     <h2 style="font-family:var(--font-display); font-weight:900; font-size:120px; line-height:0.98; letter-spacing:-0.03em; color:#fff; margin:0;">Внедрим чат-платформу&nbsp;— ускорим <span style="color:var(--mia-blue-200);">ваших операторов</span></h2>
   </div>
 
-  <div style="position:absolute; bottom:120px; left:120px; right:120px; z-index:2; display:grid; grid-template-columns:1fr 1fr 1fr; gap:40px;">
+  <div style="position:absolute; bottom:140px; left:120px; right:120px; z-index:2; display:grid; grid-template-columns:1fr 1fr; gap:60px;">
     <div>
       <div style="font-family:var(--font-text); font-size:18px; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.14em; margin-bottom:20px;">Телефон</div>
       <div style="display:flex; align-items:center; gap:16px;">
         <div style="width:56px; height:56px; border-radius:14px; background:var(--mia-blue); color:#fff; display:flex; align-items:center; justify-content:center;"><svg width="26" height="26"><use href="#i-phone"></use></svg></div>
         <div style="font-family:var(--font-display); font-weight:700; font-size:32px; color:#fff;">+7 (983) 316-08-23</div>
       </div>
-      <div class="txt-sm" style="color:rgba(255,255,255,0.6); margin-top:12px;">WhatsApp · Telegram · MAX</div>
+      <div class="txt-sm" style="color:rgba(255,255,255,0.6); margin-top:12px;">WhatsApp · Telegram · МАКС</div>
     </div>
     <div>
       <div style="font-family:var(--font-text); font-size:18px; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.14em; margin-bottom:20px;">Email</div>
@@ -1121,15 +1173,7 @@
         <div style="width:56px; height:56px; border-radius:14px; background:var(--mia-blue); color:#fff; display:flex; align-items:center; justify-content:center;"><svg width="26" height="26"><use href="#i-mail"></use></svg></div>
         <div style="font-family:var(--font-display); font-weight:700; font-size:32px; color:#fff;">v.ozhigov@robotmia.ru</div>
       </div>
-      <div class="txt-sm" style="color:rgba(255,255,255,0.6); margin-top:12px;">Владислав Ожигов, Business&nbsp;Development</div>
-    </div>
-    <div>
-      <div style="font-family:var(--font-text); font-size:18px; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:0.14em; margin-bottom:20px;">Сайт</div>
-      <div style="display:flex; align-items:center; gap:16px;">
-        <div style="width:56px; height:56px; border-radius:14px; background:var(--mia-blue); color:#fff; display:flex; align-items:center; justify-content:center;"><svg width="26" height="26"><use href="#i-chat"></use></svg></div>
-        <div style="font-family:var(--font-display); font-weight:700; font-size:32px; color:#fff;">robotmia.ru</div>
-      </div>
-      <div class="txt-sm" style="color:rgba(255,255,255,0.6); margin-top:12px;">Оставить заявку · пилот за&nbsp;2&nbsp;недели</div>
+      <div class="txt-sm" style="color:rgba(255,255,255,0.6); margin-top:12px;">Виталий Ожигов</div>
     </div>
   </div>
 </section>

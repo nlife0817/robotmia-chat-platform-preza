@@ -18,3 +18,4 @@ debug/
 node_modules/
 .cache/
 dist/
+HANDOFF.md

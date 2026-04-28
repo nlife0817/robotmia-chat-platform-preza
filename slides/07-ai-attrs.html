@@ -1,0 +1,152 @@
+<!-- ===================== 08 ИИ-АТРИБУТЫ (с анимацией парсинга) ===================== -->
+<style>
+  /* Цикл 12с: каждое значение по очереди подсвечивается в сообщении и переливается в инпут */
+  @keyframes attr-msg-phone {
+    0%, 6%   { background: var(--mia-blue-050); color: var(--mia-blue); }
+    8%, 18%  { background: var(--mia-blue); color: #fff; box-shadow: 0 0 0 4px rgba(19,96,243,0.20); }
+    22%, 100%{ background: var(--mia-blue-050); color: var(--mia-blue); }
+  }
+  @keyframes attr-msg-email {
+    0%, 26%  { background: var(--mia-blue-050); color: var(--mia-blue); }
+    28%, 38% { background: var(--mia-blue); color: #fff; box-shadow: 0 0 0 4px rgba(19,96,243,0.20); }
+    42%, 100%{ background: var(--mia-blue-050); color: var(--mia-blue); }
+  }
+  @keyframes attr-msg-req {
+    0%, 46%  { background: var(--mia-blue-050); color: var(--mia-blue); }
+    48%, 58% { background: var(--mia-blue); color: #fff; box-shadow: 0 0 0 4px rgba(19,96,243,0.20); }
+    62%, 100%{ background: var(--mia-blue-050); color: var(--mia-blue); }
+  }
+
+  /* Поля заполняются после подсветки */
+  @keyframes attr-fill-phone {
+    0%, 16%  { opacity: 0; transform: translateY(-6px); }
+    22%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+  @keyframes attr-fill-email {
+    0%, 36%  { opacity: 0; transform: translateY(-6px); }
+    42%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+  @keyframes attr-fill-req {
+    0%, 56%  { opacity: 0; transform: translateY(-6px); }
+    62%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+
+  /* Контур инпута пульсирует в момент заполнения */
+  @keyframes attr-input-phone {
+    0%, 14%  { border-color: rgba(19,96,243,0.18); background: #fff; }
+    18%, 24% { border-color: var(--mia-blue); background: #EAF1FF; box-shadow: 0 0 0 4px rgba(19,96,243,0.18); }
+    28%, 100%{ border-color: var(--mia-blue-200); background: #fff; box-shadow: none; }
+  }
+  @keyframes attr-input-email {
+    0%, 34%  { border-color: rgba(19,96,243,0.18); background: #fff; }
+    38%, 44% { border-color: var(--mia-blue); background: #EAF1FF; box-shadow: 0 0 0 4px rgba(19,96,243,0.18); }
+    48%, 100%{ border-color: var(--mia-blue-200); background: #fff; box-shadow: none; }
+  }
+  @keyframes attr-input-req {
+    0%, 54%  { border-color: rgba(19,96,243,0.18); background: #fff; }
+    58%, 64% { border-color: var(--mia-blue); background: #EAF1FF; box-shadow: 0 0 0 4px rgba(19,96,243,0.18); }
+    68%, 100%{ border-color: var(--mia-blue-200); background: #fff; box-shadow: none; }
+  }
+
+  /* Чек-листы и резюме появляются параллельно с заполнением полей */
+  @keyframes attr-card-quality {
+    0%, 18%  { opacity: 0; transform: translateY(8px); }
+    24%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+  @keyframes attr-card-analysis {
+    0%, 38%  { opacity: 0; transform: translateY(8px); }
+    44%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+  @keyframes attr-card-summary {
+    0%, 58%  { opacity: 0; transform: translateY(8px); }
+    66%, 100%{ opacity: 1; transform: translateY(0); }
+  }
+
+  .attr-msg-phone { padding: 2px 6px; border-radius: 5px; font-weight: 600; transition: none; animation: attr-msg-phone 12s ease-in-out infinite; }
+  .attr-msg-email { padding: 2px 6px; border-radius: 5px; font-weight: 600; transition: none; animation: attr-msg-email 12s ease-in-out infinite; }
+  .attr-msg-req   { padding: 2px 6px; border-radius: 5px; font-weight: 600; transition: none; animation: attr-msg-req   12s ease-in-out infinite; }
+
+  .attr-input-phone { animation: attr-input-phone 12s ease-in-out infinite; }
+  .attr-input-email { animation: attr-input-email 12s ease-in-out infinite; }
+  .attr-input-req   { animation: attr-input-req   12s ease-in-out infinite; }
+
+  .attr-fill-phone .attr-fill-text { animation: attr-fill-phone 12s ease-in-out infinite; display: inline-block; }
+  .attr-fill-email .attr-fill-text { animation: attr-fill-email 12s ease-in-out infinite; display: inline-block; }
+  .attr-fill-req   .attr-fill-text { animation: attr-fill-req   12s ease-in-out infinite; display: inline-block; }
+
+  .attr-card-quality  { animation: attr-card-quality  12s ease-in-out infinite; }
+  .attr-card-analysis { animation: attr-card-analysis 12s ease-in-out infinite; }
+  .attr-card-summary  { animation: attr-card-summary  12s ease-in-out infinite; }
+</style>
+
+<section class="slide" data-label="07 ИИ-атрибуты" data-screen-label="07 07 ИИ-атрибуты" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="6">
+  <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
+  <div style="display:flex; flex-direction:column; gap:20px;">
+    <div class="eyebrow">ИИ-атрибуты</div>
+    <h2 class="slide-title" style="max-width:1700px;">ИИ-атрибуты для&nbsp;<span class="accent">автоматического извлечения данных</span> из&nbsp;диалога и&nbsp;его оценки</h2>
+    <p class="txt-lead" style="max-width:1500px; font-size:26px;">Оператору больше не&nbsp;нужно выбирать категорию, заполнять поля и&nbsp;писать резюме — ИИ делает это автоматически.</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; margin-top:36px;">
+    <!-- Message + fields -->
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <div>
+        <div class="txt-sm" style="color:var(--mia-blue); font-weight:700; margin-bottom:10px;">Сообщение клиента</div>
+        <div style="background:#fff; border:1.5px solid var(--mia-blue-200); border-radius:16px; padding:18px 22px; font-size:20px; line-height:1.55; color:var(--mia-ink-500);">
+          Добрый день! Меня зовут Сергей Петров. Мой номер <span class="attr-msg-phone">+7&nbsp;(916)&nbsp;555-12-34</span>, почта&nbsp;— <span class="attr-msg-email">s.petrov@mail.ru</span>. Номер заявки <span class="attr-msg-req">#A-2847</span>. Хотел бы уточнить статус.
+        </div>
+      </div>
+      <div>
+        <div class="txt-sm" style="color:var(--mia-ink-500); font-weight:700; margin-bottom:10px;">Автозаполнение полей</div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div class="attr-fill-phone">
+            <div style="font-size:13px; font-weight:700; color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:4px;">Телефон</div>
+            <div class="attr-input-phone" style="border:1px solid var(--mia-blue-200); border-radius:10px; padding:10px 14px; font-size:19px; color:var(--mia-blue); font-weight:600; min-height:24px;">
+              <span class="attr-fill-text">+7 (916) 555-12-34</span>
+            </div>
+          </div>
+          <div class="attr-fill-email">
+            <div style="font-size:13px; font-weight:700; color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:4px;">Email</div>
+            <div class="attr-input-email" style="border:1px solid var(--mia-blue-200); border-radius:10px; padding:10px 14px; font-size:19px; color:var(--mia-blue); font-weight:600; min-height:24px;">
+              <span class="attr-fill-text">s.petrov@mail.ru</span>
+            </div>
+          </div>
+          <div class="attr-fill-req">
+            <div style="font-size:13px; font-weight:700; color:var(--mia-ink-300); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:4px;">Номер заявки</div>
+            <div class="attr-input-req" style="border:1px solid var(--mia-blue-200); border-radius:10px; padding:10px 14px; font-size:19px; color:var(--mia-blue); font-weight:600; min-height:24px;">
+              <span class="attr-fill-text">#A-2847</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checklists -->
+    <div>
+      <div class="txt-sm" style="color:var(--mia-ink-500); font-weight:700; margin-bottom:10px;">ИИ-чек-листы</div>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div class="card attr-card-quality" style="padding:16px 22px;">
+          <div style="font-weight:700; font-size:20px; margin-bottom:8px;">Качество работы оператора</div>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:18px;"><span style="width:22px; height:22px; border-radius:6px; background:var(--mia-success); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="14" height="14"><use href="#i-check"></use></svg></span>Оператор отработал по&nbsp;скрипту</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:18px;"><span style="width:22px; height:22px; border-radius:6px; background:var(--mia-success); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="14" height="14"><use href="#i-check"></use></svg></span>Нет отклонений от&nbsp;регламента</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:18px;"><span style="width:22px; height:22px; border-radius:6px; background:var(--mia-success); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="14" height="14"><use href="#i-check"></use></svg></span>Запрещённые фразы не использованы</div>
+          </div>
+        </div>
+        <div class="card attr-card-analysis" style="padding:16px 22px;">
+          <div style="font-weight:700; font-size:20px; margin-bottom:8px;">Анализ диалога</div>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:18px;"><span style="width:22px; height:22px; border-radius:6px; background:var(--mia-success); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="14" height="14"><use href="#i-check"></use></svg></span>Негатив от клиента: нет</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:18px;"><span style="width:22px; height:22px; border-radius:6px; background:var(--mia-success); color:#fff; display:inline-flex; align-items:center; justify-content:center; flex-shrink:0;"><svg width="14" height="14"><use href="#i-check"></use></svg></span>Категория: уточнение статуса заявки</div>
+          </div>
+        </div>
+        <div class="card card--sky attr-card-summary" style="padding:16px 22px;">
+          <div style="font-weight:700; font-size:20px; margin-bottom:6px; color:var(--mia-graphite);">Резюме диалога</div>
+          <div style="font-size:18px; line-height:1.4; color:var(--mia-blue); font-weight:500;">Клиент Сергей Петров обратился для уточнения статуса заявки&nbsp;#A-2847. Контакты подтверждены.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chrome-foot" style="display:none;"><span class="dot"></span><span class="sect">ИИ-атрибуты</span></div>
+</section>

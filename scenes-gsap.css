@@ -1,0 +1,310 @@
+/* =========================================================================
+   scenes-gsap.css — стили для GSAP-сцен слайда 07.
+   Редукционистский подход: 1-2 элемента в кадре, крупная типографика,
+   плавное изменение состояний через GSAP timeline.
+   ========================================================================= */
+
+/* ----------- Базовая раскладка сцены ----------- */
+.scene--gsap.scene--assign {
+  background:
+    radial-gradient(110% 75% at 100% 0%, rgba(19, 96, 243, 0.07) 0%, rgba(19, 96, 243, 0) 60%),
+    linear-gradient(180deg, #F4F7FC 0%, #FFFFFF 60%);
+  display: grid;
+  grid-template-columns: 0.92fr 1fr;
+  grid-template-rows: 1fr;
+  align-items: center;
+  padding: 48px 72px;
+  gap: 56px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'SF UI Display', Manrope, Inter, system-ui, sans-serif;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Сигнатурный мотив: концентрические окружности */
+.gs-wireframe {
+  position: absolute;
+  top: -260px;
+  right: -260px;
+  width: 760px;
+  height: 760px;
+  opacity: 0.07;
+  pointer-events: none;
+  animation: gs-wire-rotate 90s linear infinite;
+}
+@keyframes gs-wire-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Декоративная синяя «капля» подсветки */
+.gs-glow {
+  position: absolute;
+  top: 50%;
+  right: 14%;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(19, 96, 243, 0.20) 0%, rgba(19, 96, 243, 0) 70%);
+  transform: translateY(-50%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ----------- Левая колонка: типографика ----------- */
+.gs-left {
+  position: relative;
+  z-index: 2;
+}
+
+.gs-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+  background: rgba(19, 96, 243, 0.10);
+  border-radius: 999px;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #1360F3;
+  margin-bottom: 24px;
+}
+.gs-eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1360F3;
+  box-shadow: 0 0 0 4px rgba(19, 96, 243, 0.18);
+}
+
+.gs-title {
+  font-size: 78px;
+  font-weight: 800;
+  line-height: 0.96;
+  letter-spacing: -0.025em;
+  color: #0E1821;
+  margin: 0 0 24px;
+}
+.gs-title .gs-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 4px;
+}
+.gs-title .gs-line > span {
+  display: inline-block;
+}
+
+.gs-caption {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 19px;
+  line-height: 1.45;
+  color: rgba(14, 24, 33, 0.62);
+  max-width: 480px;
+  margin: 0;
+}
+
+/* ----------- Правая колонка: stage ----------- */
+.gs-stage-right {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  z-index: 2;
+}
+
+/* Обёртки-якори для центрирования (CSS), внутри — GSAP-анимируемые блоки */
+.gs-card-pos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+.gs-list-pos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: 90px;
+  z-index: 2;
+}
+.gs-badge-pos {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: -150px;
+  z-index: 5;
+}
+
+/* ----------- Карточка оператора ----------- */
+.gs-card {
+  width: 460px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FBFCFE 100%);
+  border-radius: 22px;
+  padding: 22px 26px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 0 0 1px rgba(14, 24, 33, 0.06),
+    0 28px 64px -16px rgba(11, 58, 146, 0.22),
+    0 8px 24px -8px rgba(14, 24, 33, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  will-change: transform, box-shadow, opacity;
+}
+
+.gs-card-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1360F3 0%, #0B3A92 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  box-shadow: 0 6px 16px -4px rgba(11, 58, 146, 0.45);
+  will-change: transform;
+}
+.gs-card-avatar svg {
+  width: 26px;
+  height: 26px;
+}
+.gs-card-avatar::after {
+  content: '';
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #16A34A;
+  border: 2.5px solid white;
+}
+
+.gs-card-info {
+  flex: 1;
+  min-width: 0;
+}
+.gs-card-label {
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(14, 24, 33, 0.50);
+  margin-bottom: 5px;
+}
+.gs-card-name-wrap {
+  position: relative;
+  height: 32px;
+  overflow: hidden;
+}
+.gs-card-name {
+  display: block;
+  position: absolute;
+  inset: 0;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.012em;
+  color: #0E1821;
+  line-height: 1.15;
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+.gs-card-group-wrap {
+  position: relative;
+  height: 20px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+.gs-card-group {
+  display: block;
+  position: absolute;
+  inset: 0;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 14px;
+  color: rgba(14, 24, 33, 0.6);
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+
+/* ----------- Список операторов ----------- */
+.gs-list {
+  width: 460px;
+  background: linear-gradient(180deg, #FFFFFF, #FBFCFE);
+  border-radius: 18px;
+  padding: 8px;
+  box-shadow:
+    inset 0 0 0 1px rgba(14, 24, 33, 0.06),
+    0 24px 48px -12px rgba(14, 24, 33, 0.16);
+  will-change: transform, opacity;
+}
+
+.gs-opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #0E1821;
+  position: relative;
+  will-change: transform, opacity, background-color;
+}
+.gs-opt-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #16A34A;
+  flex-shrink: 0;
+  will-change: transform;
+}
+.gs-opt-tag {
+  margin-left: 6px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(14, 24, 33, 0.06);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(14, 24, 33, 0.55);
+  text-transform: uppercase;
+}
+
+/* ----------- Бейдж «Назначено» ----------- */
+.gs-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(180deg, #1FAB55, #16A34A);
+  color: white;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 14px 32px -8px rgba(22, 163, 74, 0.55),
+    0 4px 12px -4px rgba(22, 163, 74, 0.35);
+  white-space: nowrap;
+  will-change: transform, opacity;
+}
+.gs-badge svg {
+  width: 13px;
+  height: 13px;
+  stroke: white;
+  stroke-width: 3;
+  fill: none;
+}

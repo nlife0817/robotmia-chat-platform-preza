@@ -1,0 +1,97 @@
+<!-- ===================== 05 ОМНИКАНАЛЬНОСТЬ ===================== -->
+<section class="slide" data-label="05 Омниканальность" data-screen-label="05 05 Омниканальность" data-om-validate="no_overflowing_text,no_overlapping_text,slide_sized_text" data-deck-slide="4">
+  <img class="chrome-logo" src="assets/logo-dark.svg" alt="ROBOTMIA">
+  <div style="display:flex; flex-direction:column; gap:32px;">
+    <div class="eyebrow">Каналы</div>
+    <h2 class="slide-title" style="max-width:1700px;">Все&nbsp;мессенджеры в&nbsp;<span class="accent">едином окне</span></h2>
+    <p class="txt-lead" style="max-width:1300px;">Сотрудники работают через одну платформу со всеми каналами клиентов, вся история сохраняется в едином профиле.</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1.3fr 1fr; gap:60px; margin-top:48px; align-items:start;">
+    <!-- Channels grid 4×2: Веб → ВК → МАКС → Telegram → WhatsApp → Авито → ОК → И другие -->
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:14px;">
+      <div class="card channel-card">
+        <img src="assets/channels/web.svg" alt="Веб-виджет" class="channel-icon">
+        <div class="channel-name">Веб-виджет</div>
+        <div class="channel-sub">Чат на&nbsp;ваш сайт</div>
+      </div>
+      <div class="card channel-card" style="border:2px solid var(--mia-blue-200); background:var(--mia-blue-050);">
+        <img src="assets/channels-original/VK_Compact_Logo_(2021-present).svg" alt="ВКонтакте" class="channel-icon">
+        <div class="channel-name">ВКонтакте</div>
+        <div class="channel-sub">Отвечайте от&nbsp;лица сообщества</div>
+      </div>
+      <div class="card channel-card" style="border:2px solid var(--mia-blue-200); background:var(--mia-blue-050);">
+        <img src="assets/channels-original/Логотип_MAX.svg" alt="МАКС" class="channel-icon">
+        <div class="channel-name">МАКС</div>
+        <div class="channel-sub">Национальный мессенджер</div>
+      </div>
+      <div class="card channel-card">
+        <img src="assets/channels-original/Telegram_2019_Logo.svg" alt="Telegram" class="channel-icon">
+        <div class="channel-name">Telegram</div>
+        <div class="channel-sub">Подключите вашего бота</div>
+      </div>
+      <div class="card channel-card">
+        <img src="assets/channels-original/2062095_application_chat_communication_logo_whatsapp_icon.svg" alt="WhatsApp" class="channel-icon">
+        <div class="channel-name">WhatsApp</div>
+        <div class="channel-sub">Business&nbsp;API</div>
+      </div>
+      <div class="card channel-card">
+        <img src="assets/channels-original/Avito_logo.svg" alt="Авито" class="channel-icon" style="width:64px; height:64px;">
+        <div class="channel-name">Авито</div>
+        <div class="channel-sub">Чат с&nbsp;покупателями</div>
+      </div>
+      <div class="card channel-card">
+        <img src="assets/channels-original/Logo_Odnoklassniki_2023.svg" alt="Одноклассники" class="channel-icon">
+        <div class="channel-name">Одноклассники</div>
+        <div class="channel-sub">Отвечайте в&nbsp;сообществе</div>
+      </div>
+      <!-- "И другие" — без карточки, плавающий текст с иконкой -->
+      <div style="display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding:20px 24px; gap:12px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--mia-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        <div class="channel-name" style="color:var(--mia-ink-500);">И&nbsp;другие</div>
+      </div>
+    </div>
+
+    <!-- Mini chat-window mock (вместо «Единого профиля») -->
+    <div class="dialog-mock">
+      <div class="dialog-mock-header">
+        <div class="dialog-mock-avatar">АС</div>
+        <div>
+          <div class="dialog-mock-name">Алексей Соколов</div>
+          <div class="dialog-mock-meta">
+            <img src="assets/channels-original/VK_Compact_Logo_(2021-present).svg" alt="" style="width:14px;height:14px;border-radius:3px;">
+            ВКонтакте · vktest
+          </div>
+        </div>
+      </div>
+      <div class="dialog-mock-body">
+        <div class="dialog-mock-day">26 апреля</div>
+        <div class="bubble bubble--peer">
+          Здравствуйте! Видел кейс с&nbsp;РБК — реально подключить такое же для нашего отдела продаж?
+          <span class="bubble-time">14:08</span>
+        </div>
+        <div class="bubble bubble--own">
+          <div class="bubble-author">Александра Андреева</div>
+          Здравствуйте, Алексей! Конечно. Расскажите, сколько операторов и&nbsp;какие каналы используете?
+          <span class="bubble-time">14:11</span>
+        </div>
+        <div class="bubble bubble--peer">
+          Сейчас 18 операторов на&nbsp;WhatsApp и&nbsp;Telegram. Планируем подключить ВКонтакте и&nbsp;Авито.
+          <span class="bubble-time">14:18</span>
+        </div>
+        <div class="bubble bubble--own">
+          <div class="bubble-author">Александра Андреева</div>
+          Для команды до&nbsp;20&nbsp;человек с&nbsp;4&nbsp;каналами — от&nbsp;95&nbsp;000&nbsp;₽ в&nbsp;месяц.
+          <span class="bubble-time">14:24</span>
+        </div>
+      </div>
+      <div class="dialog-mock-input">
+        <span class="dialog-mock-placeholder">Написать сообщение...</span>
+        <span class="dialog-mock-send">Отправить</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chrome-foot" style="display:none;"><span class="dot"></span><span class="sect">Омниканальность</span></div>
+</section>
+

@@ -28,25 +28,29 @@
 
   <!-- Горизонтальный timeline 2017 → 2020 → 2025 (компактно) -->
   <div data-anim="reveal-up" data-anim-delay="480" style="margin-top:64px; position:relative; padding:0 60px;">
-    <div style="position:absolute; left:80px; right:80px; top:18px; height:2px; background:linear-gradient(90deg, var(--mia-blue-200) 0%, var(--mia-blue) 100%);"></div>
+    <!-- Линия проходит через центр точек: точки 18×18 → центр на 9px от верха ряда точек.
+         Ряд точек начинается с margin-top:14px от верха блока (через высоту "ободка").
+         Линия по центру точек: top = 14px + 9px = 23px. -->
+    <div style="position:absolute; left:80px; right:80px; top:23px; height:2px; background:linear-gradient(90deg, var(--mia-blue-200) 0%, var(--mia-blue) 100%); z-index:0;"></div>
 
-    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:48px;">
+    <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:48px; position:relative; z-index:1;">
       <div style="display:flex; flex-direction:column; gap:18px;">
-        <div style="width:18px; height:18px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 6px rgba(19,96,243,0.14); margin-left:14px;"></div>
+        <div style="width:18px; height:18px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 6px rgba(19,96,243,0.14); margin:14px 0 0 14px;"></div>
         <div>
           <div style="font-family:var(--font-display); font-weight:900; font-size:42px; color:var(--mia-blue); line-height:1;">2017</div>
           <div style="font-size:21px; line-height:1.3; color:var(--mia-graphite); margin-top:10px; font-weight:600; max-width:380px;">Запуск первого клиента по&nbsp;Голосовому Ассистенту</div>
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:18px;">
-        <div style="width:18px; height:18px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 6px rgba(19,96,243,0.14); margin-left:14px;"></div>
+        <div style="width:18px; height:18px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 6px rgba(19,96,243,0.14); margin:14px 0 0 14px;"></div>
         <div>
           <div style="font-family:var(--font-display); font-weight:900; font-size:42px; color:var(--mia-blue); line-height:1;">2020</div>
           <div style="font-size:21px; line-height:1.3; color:var(--mia-graphite); margin-top:10px; font-weight:600; max-width:380px;">Пилоты по&nbsp;модулю детекции автоответчиков (точность&nbsp;99,9%)</div>
         </div>
       </div>
       <div style="display:flex; flex-direction:column; gap:18px;">
-        <div style="width:22px; height:22px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 8px rgba(19,96,243,0.22); margin-left:12px;"></div>
+        <!-- Большая точка (22px) — центр на 11px → нужно сместить так, чтобы её центр был на 23px от верха блока -->
+        <div style="width:22px; height:22px; border-radius:50%; background:var(--mia-blue); box-shadow:0 0 0 8px rgba(19,96,243,0.22); margin:12px 0 0 12px;"></div>
         <div>
           <div style="font-family:var(--font-display); font-weight:900; font-size:42px; color:var(--mia-blue); line-height:1;">2025</div>
           <div style="font-size:21px; line-height:1.3; color:var(--mia-graphite); margin-top:10px; font-weight:600; max-width:420px;">Запуск чат-платформы и&nbsp;новых&nbsp;продуктов</div>
